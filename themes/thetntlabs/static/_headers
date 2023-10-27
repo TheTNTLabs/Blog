@@ -1,0 +1,10 @@
+# Harden security and privacy.
+/*
+  Content-Security-Policy: default-src 'self'; img-src 'self' https://design.thetntlabs.us.to; style-src 'self' https://design.thetntlabs.us.to; script-src 'none'; frame-ancestors 'none';
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+
+# Prevent Cloudflare Pages deployments showing in search results.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
