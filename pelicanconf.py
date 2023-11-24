@@ -12,8 +12,6 @@ TIMEZONE = 'Etc/UTC'
 
 MENUITEMS = (('Home', 'https://www.thetntlabs.us.to/'),
              ('Archives', '/archives.html'),
-             ('Authors', '/authors.html'),
-             ('Categories', '/categories.html'),
              ('Feed', '/feeds/all.atom.xml'))
 
 DEFAULT_PAGINATION = 10
