@@ -10,9 +10,9 @@ THEME_STATIC_DIR = ''
 DEFAULT_LANG = 'en-us'
 TIMEZONE = 'Etc/UTC'
 
-MENUITEMS = (('Home', 'https://www.thetntlabs.us.to/'),
-             ('Archives', '/archives.html'),
-             ('Feed', '/feeds/all.atom.xml'))
+MENUITEMS = (('Home', 'https://www.thetntlabs.us.to/', '_blank'),
+             ('Archives', '/archives.html', '_self'),
+             ('Feed', '/feeds/all.atom.xml', '_self'))
 
 DEFAULT_PAGINATION = 10
 

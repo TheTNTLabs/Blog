@@ -44,17 +44,17 @@
         </a>
         <div class="navbar-nav">
         {% if DISPLAY_PAGES_ON_MENU %}
-          {% for title, link in MENUITEMS %}
-          <a class="nav-link" href="{{ link }}">{{ title }}</a>
+          {% for title, link, target in MENUITEMS %}
+          <a class="nav-link" href="{{ link }}" target="{{ target }}">{{ title }}</a>
           {% endfor %}
           {% for p in pages %}
-          <a{% if p == page %} class=" nav-link active"{% endif %} class="nav-link" href="/{{ p.url }}">{{ p.title }}</a>
+          <a{% if p == page %} class="nav-link active"{% endif %} class="nav-link" href="/{{ p.url }}">{{ p.title }}</a>
           {% endfor %}
-          <span class="navbar-text">|</span>
+          <hr>
         {% endif %}
         {% if DISPLAY_CATEGORIES_ON_MENU %}
-          {% for cat, null in categories %}
-          <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }}</a>
+          {% for cat, art in categories %}
+          <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }} ({{ art|count }})</a>
           {% endfor %}
         {% endif %}
         </div>
