@@ -36,37 +36,45 @@
     {% endblock head %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm" aria-label="Main navigation">
       <div class="container">
         <a class="navbar-brand" href="/">
           <img src="https://design.thetntlabs.us.to/img/logo-32x32.png" alt="TheTNTLabs" class="align-top">
           {{ SITENAME }}
         </a>
-        <div class="navbar-nav">
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {% for title, link, target in MENUITEMS %}
-          <a class="nav-link" href="{{ link }}" target="{{ target }}">{{ title }}</a>
-          {% endfor %}
-          {% for p in pages %}
-          <a{% if p == page %} class="nav-link active"{% endif %} class="nav-link" href="/{{ p.url }}">{{ p.title }}</a>
-          {% endfor %}
-          <hr>
-        {% endif %}
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
-          {% for cat, art in categories %}
-          <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }} ({{ art|count }})</a>
-          {% endfor %}
-        {% endif %}
+        <input type="checkbox" id="navbar-toggler-checkbox">
+        <label class="navbar-toggler" for="navbar-toggler-checkbox" role="button" tabindex="0" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </label>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {% for title, link, target in MENUITEMS %}
+            <a class="nav-link" target="{{ target }}" href="{{ link }}">{{ title }}</a>
+            {% endfor %}
+            {% for p in pages %}
+            <a{% if p == page %} class="nav-link active"{% endif %} class="nav-link" href="/{{ p.url }}">{{ p.title }}</a>
+            {% endfor %}
+            <hr>
+          {% endif %}
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, art in categories %}
+            <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }} ({{ art|count }})</a>
+            {% endfor %}
+          {% endif %}
+          </div>
         </div>
       </div>
     </nav>
-    <div class="container">
-      {% block content %}
-      {% endblock %}
-    </div>
+    <main>
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </main>
     <footer class="text-center">
       <div class="container-fluid text-bg-dark p-2">
-        Copyright © 2023 TheTNTLabs. <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE">LICENSE (Blog)</a> <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/src/branch/main/LICENSE">LICENSE (Design)</a>
+        <p class="m-0">Copyright © 2023 TheTNTLabs. <a class="text-reset" target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE">LICENSE (Blog)</a> <a class="text-reset" target="_blank" href="https://codeberg.org/TheTNTLabs/Design/src/branch/main/LICENSE">LICENSE (Design)</a></p>
       </div>
     </footer>
   </body>

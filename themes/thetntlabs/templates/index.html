@@ -1,28 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 <section id="content">
-{% block content_title %}
-<h1>All articles</h1>
-{% endblock %}
-
-<ol id="post-list">
-{% for article in articles_page.object_list %}
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
-                    <address class="vcard author">By
-                    {% for author in article.authors %}
-                        <a class="url fn" href="/{{ author.url }}">{{ author }}</a>
-                    {% endfor %}
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
-        </article></li>
-{% endfor %}
-</ol><!-- /#posts-list -->
-{% if articles_page.has_other_pages() %}
-    {% include 'pagination.html' %}
-{% endif %}
-</section><!-- /#content -->
+  <div class="text-center mt-3">
+    {% block content_title %}{% endblock %}
+  </div>
+  <div class="col col-10 mx-auto">
+    {% for article in articles_page.object_list %}
+    <div class="row my-3">
+      <div class="card px-0">
+        <article>
+          <div class="card-body">
+            <header class="mb-2">
+              <h2 class="card-title"><a class="text-reset" href="/{{ article.url }}">{{ article.title }}</a></h2>
+              <p class="card-subtitle">
+                <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+              </p>
+              <p class="card-subtitle">
+                By
+                {% for author in article.authors %}
+                <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>,
+                {% endfor %}
+              </p>
+              <p class="card-subtitle">
+                In <a class="text-reset" href="/{{ article.category.url }}">{{ article.category }}</a>
+              </p>
+            </header>
+            <div class="card-text">
+              {{ article.summary }}
+            </div>
+          </div>
+          {% if article.tags %}
+          <div class="card-footer">
+            Tags:
+            {% for tag in article.tags %}
+            <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>,
+            {% endfor %}
+          </div>
+          {% endif %}
+        </article>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if articles_page.has_other_pages() %}
+  {% include 'pagination.html' %}
+  {% endif %}
+</section>
 {% endblock content %}

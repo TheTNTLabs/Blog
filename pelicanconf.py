@@ -8,10 +8,13 @@ THEME = 'themes/thetntlabs/'
 THEME_STATIC_DIR = ''
 
 DEFAULT_LANG = 'en-us'
+DEFAULT_DATE_FORMAT = '%B %d, %Y'
 TIMEZONE = 'Etc/UTC'
 
 MENUITEMS = (('Home', 'https://www.thetntlabs.us.to/', '_blank'),
              ('Archives', '/archives', '_self'),
+             ('Authors', '/authors', '_self'),
+             ('Tags', '/tags', '_self'),
              ('Feed', '/feeds/all.atom.xml', '_self'))
 
 DEFAULT_PAGINATION = 10
