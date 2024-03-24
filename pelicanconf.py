@@ -24,6 +24,9 @@ DELETE_OUTPUT_DIRECTORY = True
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
 
+ARTICLE_LANG_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}-{lang}.html'
+ARTICLE_LANG_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}-{lang}'
+
 AUTHOR_SAVE_AS = 'author/{slug}.html'
 AUTHOR_URL = 'author/{slug}'
 
