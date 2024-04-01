@@ -60,7 +60,7 @@
           {% endif %}
           {% if DISPLAY_CATEGORIES_ON_MENU %}
             {% for cat, art in categories %}
-            <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }} ({{ art|count }})</a>
+            <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }} <span class="badge text-bg-secondary">{{ art|count }}</span></a>
             {% endfor %}
           {% endif %}
           </div>
@@ -68,8 +68,12 @@
       </div>
     </nav>
     <main>
-      {% block content %}
-      {% endblock %}
+      <div class="container">
+        <section id="content">
+          {% block content %}
+          {% endblock %}
+        </section>
+      </div>
     </main>
     <footer class="text-center">
       <div class="container-fluid text-bg-dark p-2">

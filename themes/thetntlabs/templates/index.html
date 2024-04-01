@@ -1,59 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-  <section id="content">
-    <div class="text-center mt-3">
-      {% block content_title %}{% endblock %}
-    </div>
-    <div class="col col-10 mx-auto">
-      {% for article in articles_page.object_list %}
-      <div class="row my-3">
-        <div class="card px-0">
-          <article>
-            <div class="card-body">
-              <header class="mb-2">
-                <h2 class="card-title"><a class="text-reset" href="/{{ article.url }}">{{ article.title }}</a></h2>
-                <p class="card-subtitle"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% if article.modified %} (Modified on <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}<time>){% endif %}</p>
-                <p class="card-subtitle">
-                  By
-                  {% for author in article.authors %}
-                  <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>,
-                  {% endfor %}
-                </p>
-                <p class="card-subtitle">In <a class="text-reset" href="/{{ article.category.url }}">{{ article.category }}</a></p>
-              </header>
-              <div class="card-text">
-                {{ article.summary }}
-              </div>
-            </div>
-            {% if article.tags or article.translations %}
-            <div class="card-footer">
-              {% if article.tags %}
-              <p class="m-0">
-                Tags:
-                {% for tag in article.tags %}
-                <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>,
-                {% endfor %}
-              </p>
-              {% endif %}
-              {% if article.translations %}
-              <p class="m-0">
-                Translations:
-                {% for translation in article.translations %}
-                <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>,
-                {% endfor %}
-              </p>
-              {% endif %}
-            </div>
-            {% endif %}
-          </article>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    {% if articles_page.has_other_pages() %}
-    {% include 'pagination.html' %}
-    {% endif %}
-  </section>
+<div class="text-center mt-3">
+  {% block content_title %}{% endblock %}
 </div>
+<div class="col col-10 mx-auto">
+  {% for article in articles_page.object_list %}
+  <div class="row my-3">
+    <div class="card px-0">
+      <article>
+        <div class="card-body">
+          <header class="mb-2">
+            <h2 class="card-title"><a class="text-reset" href="/{{ article.url }}">{{ article.title }}</a></h2>
+            <p class="card-subtitle"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% if article.modified %} (Modified on <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}<time>){% endif %}</p>
+            <p class="card-subtitle">
+              By
+              {% for author in article.authors %}
+              <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>,
+              {% endfor %}
+            </p>
+            <p class="card-subtitle">In <a class="text-reset" href="/{{ article.category.url }}">{{ article.category }}</a></p>
+          </header>
+          <div class="card-text">
+            {{ article.summary }}
+          </div>
+        </div>
+        {% if article.tags or article.translations %}
+        <div class="card-footer">
+          {% if article.tags %}
+          <p class="m-0">
+            Tags:
+            {% for tag in article.tags %}
+            <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>,
+            {% endfor %}
+          </p>
+          {% endif %}
+          {% if article.translations %}
+          <p class="m-0">
+            Translations:
+            {% for translation in article.translations %}
+            <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>,
+            {% endfor %}
+          </p>
+          {% endif %}
+        </div>
+        {% endif %}
+      </article>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% if articles_page.has_other_pages() %}
+{% include 'pagination.html' %}
+{% endif %}
 {% endblock content %}
