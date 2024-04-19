@@ -17,7 +17,7 @@
     <meta name="description" content="{{ article.summary|striptags }}">
   {% endif %}
   {% if article.tags %}
-    <meta name="keywords" content="{% for tag in article.tags %}{{ tag }}, {% endfor %}">
+    <meta name="keywords" content="{% for tag in article.tags %}{{ tag }}{{ ", " if not loop.last else "" }}{% endfor %}">
   {% endif %}
 {% endblock %}
 
@@ -29,7 +29,7 @@
     <p class="m-0">
       By
       {% for author in article.authors %}
-      <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>,
+      <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>{{ "," if not loop.last else "" }}
       {% endfor %}
     </p>
     <p class="m-0">In <a class="text-reset" href="/{{ article.category.url }}">{{ article.category }}</a></p>
@@ -37,7 +37,7 @@
     <p class="m-0">
       Tags:
       {% for tag in article.tags %}
-      <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>,
+      <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>{{ "," if not loop.last else "" }}
       {% endfor %}
     </p>
     {% endif %}
@@ -45,7 +45,7 @@
     <p class="m-0">
       Translations:
       {% for translation in article.translations %}
-      <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>,
+      <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>{{ "," if not loop.last else "" }}
       {% endfor %}
     </p>
     {% endif %}

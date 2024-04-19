@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="text-center mt-3">
-  {% block content_title %}{% endblock %}
+  {% block content_title %}
+  <h1 class="visually-hidden">All articles</h1>
+  {% endblock %}
 </div>
 <div class="col col-10 mx-auto">
   {% for article in articles_page.object_list %}
@@ -15,7 +17,7 @@
             <p class="card-subtitle">
               By
               {% for author in article.authors %}
-              <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>,
+              <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>{{ "," if not loop.last else "" }}
               {% endfor %}
             </p>
             <p class="card-subtitle">In <a class="text-reset" href="/{{ article.category.url }}">{{ article.category }}</a></p>
@@ -30,7 +32,7 @@
           <p class="m-0">
             Tags:
             {% for tag in article.tags %}
-            <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>,
+            <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>{{ "," if not loop.last else "" }}
             {% endfor %}
           </p>
           {% endif %}
@@ -38,7 +40,7 @@
           <p class="m-0">
             Translations:
             {% for translation in article.translations %}
-            <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>,
+            <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>{{ "," if not loop.last else "" }}
             {% endfor %}
           </p>
           {% endif %}
