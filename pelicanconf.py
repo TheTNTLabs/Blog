@@ -5,7 +5,12 @@ SITEURL = 'https://blog.thetntlabs.us.to'
 PATH = 'content/'
 OUTPUT_PATH = 'static-deployment/'
 THEME = 'themes/thetntlabs/'
-THEME_STATIC_DIR = ''
+STATIC_PATHS = [
+    'static/',
+    ]
+EXTRA_PATH_METADATA = {
+    'static/': {'path': ''},
+    }
 
 DEFAULT_LANG = 'en-us'
 DEFAULT_DATE_FORMAT = '%B %d, %Y'
