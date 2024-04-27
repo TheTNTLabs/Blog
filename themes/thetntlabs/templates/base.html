@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://design.thetntlabs.us.to/css/thetntlabs.css">
     <link rel="icon" href="https://design.thetntlabs.us.to/img/logo-32x32.png">
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-    <meta name="generator" content="Pelican">
+    <meta name="generator" content="Pelican (https://getpelican.com/)">
     {% if FEED_ALL_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed">
     {% endif %}
@@ -76,8 +76,10 @@
     <main>
       <div class="container">
         <section id="content">
+          {% filter indent(width=10, first=True) %}
           {% block content %}
           {% endblock %}
+          {% endfilter %}
         </section>
       </div>
     </main>
