@@ -1,4 +1,4 @@
-AUTHOR = 'TheTNTLabs'
+AUTHOR = 'TheTNTLabs Gaming'
 SITENAME = 'TheTNTLabs Blog'
 SITEURL = 'https://blog.thetntlabs.us.to'
 
