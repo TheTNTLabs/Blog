@@ -55,16 +55,21 @@
         </label>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-          {% if DISPLAY_PAGES_ON_MENU %}
-            {% for title, link, target in MENUITEMS %}
+          {% for title, link, target in MENUITEMS %}
             <a class="nav-link" target="{{ target }}" href="{{ link }}">{{ title }}</a>
-            {% endfor %}
-            {% for p in pages %}
-            <a{% if p == page %} class="nav-link active"{% endif %} class="nav-link" href="/{{ p.url }}">{{ p.title }}</a>
-            {% endfor %}
+          {% endfor %}
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {% if pages %}
             <hr>
+            {% endif %}
+            {% for pag in pages %}
+            <a{% if pag == page %} class="nav-link active"{% endif %} class="nav-link" href="/{{ pag.url }}">{{ pag.title }}</a>
+            {% endfor %}
           {% endif %}
           {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% if categories %}
+            <hr>
+            {% endif %}
             {% for cat, art in categories %}
             <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }} <span class="badge text-bg-secondary">{{ art|count }}</span></a>
             {% endfor %}
