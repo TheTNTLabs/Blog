@@ -4,9 +4,13 @@
 
 {% block content %}
 <h1>Tags for {{ SITENAME }}</h1>
-<ul class="list-group list-group-flush">
-  {% for tag, articles in tags|sort %}
-  <li class="list-group-item"><a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a> <span class="badge text-bg-secondary">{{ articles|count }}</span></li>
-  {% endfor %}
-</ul>
+<table class="table">
+  <tbody>
+    {% for tag, articles in tags|sort %}
+    <tr>
+      <td><a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a> <span class="badge text-bg-secondary">{{ articles|count }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
