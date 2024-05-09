@@ -4,11 +4,14 @@
 
 {% block content %}
 <h1>Archives for {{ period | reverse | join(' ') }}</h1>
-
-<dl>
-{% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="/{{ article.url }}">{{ article.title }}</a></dd>
-{% endfor %}
-</dl>
+<table class="table">
+  <tbody>
+    {% for article in dates %}
+    <tr>
+      <td>{{ article.locale_date }}</td>
+      <td><a class="text-reset" href="/{{ article.url }}">{{ article.title }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

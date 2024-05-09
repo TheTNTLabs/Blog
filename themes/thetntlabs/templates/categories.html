@@ -3,10 +3,10 @@
 {% block title %}Categories - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-    <h1>Categories on {{ SITENAME }}</h1>
-    <ul>
-    {% for category, articles in categories|sort %}
-        <li><a href="/{{ category.url }}">{{ category }}</a> ({{ articles|count }})</li>
-    {% endfor %}
-    </ul>
+<h1>Categories on {{ SITENAME }}</h1>
+<ul class="list-group list-group-flush">
+  {% for category, articles in categories|sort %}
+  <li class="list-group-item"><a class="text-reset" href="/{{ category.url }}">{{ category }}</a> <span class="badge text-bg-secondary">{{ articles|count }}</span></li>
+  {% endfor %}
+</ul>
 {% endblock %}

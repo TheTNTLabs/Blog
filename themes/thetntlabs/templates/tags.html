@@ -3,10 +3,10 @@
 {% block title %}Tags - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-    <h1>Tags for {{ SITENAME }}</h1>
-    <ul>
-    {% for tag, articles in tags|sort %}
-        <li><a href="/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
-    {% endfor %}
-    </ul>
+<h1>Tags for {{ SITENAME }}</h1>
+<ul class="list-group list-group-flush">
+  {% for tag, articles in tags|sort %}
+  <li class="list-group-item"><a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a> <span class="badge text-bg-secondary">{{ articles|count }}</span></li>
+  {% endfor %}
+</ul>
 {% endblock %}

@@ -3,10 +3,10 @@
 {% block title %}Authors - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-    <h1>Authors on {{ SITENAME }}</h1>
-    <ul>
-    {% for author, articles in authors|sort %}
-        <li><a href="/{{ author.url }}">{{ author }}</a> ({{ articles|count }})</li>
-    {% endfor %}
-    </ul>
+<h1>Authors on {{ SITENAME }}</h1>
+<ul class="list-group list-group-flush">
+  {% for author, articles in authors|sort %}
+  <li class="list-group-item"><a class="text-reset" href="/{{ author.url }}">{{ author }}</a> <span class="badge text-bg-secondary">{{ articles|count }}</span></li>
+  {% endfor %}
+</ul>
 {% endblock %}
