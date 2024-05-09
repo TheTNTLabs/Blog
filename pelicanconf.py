@@ -5,11 +5,12 @@ SITEURL = 'https://blog.thetntlabs.us.to'
 PATH = 'content/'
 OUTPUT_PATH = 'static-deployment/'
 THEME = 'themes/thetntlabs/'
+
 STATIC_PATHS = [
-    'static/',
+    'static/_headers',
     ]
 EXTRA_PATH_METADATA = {
-    'static/': {'path': ''},
+    'static/_headers': {'path': '_headers'},
     }
 
 DEFAULT_LANG = 'en-us'
