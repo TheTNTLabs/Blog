@@ -1,10 +1,11 @@
-# Harden security and privacy.
+# Harden security for an application
 /*
-  Content-Security-Policy: default-src 'self'; img-src 'self' https://design.thetntlabs.us.to; style-src 'self' https://design.thetntlabs.us.to; script-src 'none'; frame-ancestors 'none';
-  Referrer-Policy: no-referrer
-  X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), clipboard-read=(), clipboard-write=(), gamepad=(), hid=(), idle-detection=(), interest-cohort=(), serial=(), unload=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' https://design.thetntlabs.us.to; style-src 'self' https://design.thetntlabs.us.to; font-src 'self' https://design.thetntlabs.us.to; script-src 'none'; frame-ancestors 'none';
 
-# Prevent Cloudflare Pages deployments showing in search results.
+# Prevent your pages.dev deployments showing in search results
 https://:project.pages.dev/*
   X-Robots-Tag: noindex

@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}{{ period | reverse | join(' ') }} archives - {{ SITENAME }}{% endblock %}
+{% block title %}Archives for {{ period | reverse | join(' ') }} - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<h1>Archives for {{ period | reverse | join(' ') }}</h1>
-<table class="table">
-  <tbody>
-    {% for article in dates %}
-    <tr>
-      <td>{{ article.locale_date }}</td>
-      <td><a class="text-reset" href="/{{ article.url }}">{{ article.title }}</a></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="container mt-2">
+  <section id="archives-for-{{ period | reverse | join(' ') | replace(' ', '-') | lower }}">
+    <h1 class="text-center">Archives for {{ period | reverse | join(' ') }}</h1>
+    {% include 'navigation.html' %}
+    <table class="table shadow-sm">
+      <tbody>
+        {% for article in dates %}
+        <tr>
+          <td>{{ article.locale_date }}</td>
+          <td><a href="/{{ article.url }}">{{ article.title }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 {% endblock %}

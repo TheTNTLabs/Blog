@@ -3,14 +3,22 @@
 {% block title %}Tags - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<h1>Tags for {{ SITENAME }}</h1>
-<table class="table">
-  <tbody>
-    {% for tag, articles in tags|sort %}
-    <tr>
-      <td><a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a> <span class="badge text-bg-secondary">{{ articles|count }}</span></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="container mt-2">
+  <section id="tags">
+    <h1 class="text-center">Tags</h1>
+    {% include 'navigation.html' %}
+    <table class="table shadow-sm">
+      <tbody>
+        {% for tag, articles in tags|sort %}
+        <tr>
+          <td>
+            <a href="/{{ tag.url }}">{{ tag }}</a>
+            <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles|count }}</span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 {% endblock %}

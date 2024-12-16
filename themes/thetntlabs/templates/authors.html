@@ -3,14 +3,22 @@
 {% block title %}Authors - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<h1>Authors on {{ SITENAME }}</h1>
-<table class="table">
-  <tbody>
-    {% for author, articles in authors|sort %}
-    <tr>
-      <td><a class="text-reset" href="/{{ author.url }}">{{ author }}</a> <span class="badge text-bg-secondary">{{ articles|count }}</span></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="container mt-2">
+  <section id="authors">
+    <h1 class="text-center">Authors</h1>
+    {% include 'navigation.html' %}
+    <table class="table shadow-sm">
+      <tbody>
+        {% for author, articles in authors|sort %}
+        <tr>
+          <td>
+            <a href="/{{ author.url }}">{{ author }}</a>
+            <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles|count }}</span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 {% endblock %}

@@ -1,57 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="text-center mt-3">
-  {% block content_title %}
-  <h1 class="visually-hidden">All articles</h1>
-  {% endblock %}
-</div>
-<div class="col col-10 mx-auto">
-  {% for article in articles_page.object_list %}
-  <div class="row my-3">
-    <div class="card px-0">
-      <article>
-        <div class="card-body">
-          <header class="mb-2">
-            <h2 class="card-title"><a class="text-reset" href="/{{ article.url }}">{{ article.title }}</a></h2>
-            <p class="card-subtitle"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% if article.modified %} (Modified on <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}<time>){% endif %}</p>
-            <p class="card-subtitle">
-              By
-              {% for author in article.authors %}
-              <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>{{ "," if not loop.last else "" }}
-              {% endfor %}
-            </p>
-            <p class="card-subtitle">In <a class="text-reset" href="/{{ article.category.url }}">{{ article.category }}</a></p>
-          </header>
-          <div class="card-text">
-            {{ article.summary }}
+<div class="container mt-2">
+  <section id="{% block content_slug %}articles{% endblock %}">
+    <span class="text-center">
+      {% block content_title %}
+      <h1>Articles</h1>
+      {% endblock %}
+    </span>
+    {% include 'feed_badges.html' %}
+    {% include 'navigation.html' %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
+      {% for article in articles_page.object_list %}
+      <section id="{{ article.slug }}">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="card-img-top" src="{{ article.image }}" alt="{{ article.image_alt }}">
+            <div class="card-body">
+              <h2 class="card-title h5">{{ article.title }}</h2>
+              <p class="card-text text-truncate">{{ article.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-secondary" target="_self" href="/{{ article.url }}">Read</a>
+                  {% if article.discuss %}
+                  <a class="btn btn-sm btn-outline-secondary" target="_blank" href="{{ article.discuss }}" title="Discuss">
+                    <i class="bi bi-chat"></i>
+                  </a>
+                  {% endif %}
+                </div>
+                <small class="text-body-secondary">
+                  <a href="/{{ article.author.url }}">{{ article.author }}</a>
+                  ·
+                  <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                </small>
+              </div>
+            </div>
           </div>
         </div>
-        {% if article.tags or article.translations %}
-        <div class="card-footer">
-          {% if article.tags %}
-          <p class="m-0">
-            Tags:
-            {% for tag in article.tags %}
-            <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>{{ "," if not loop.last else "" }}
-            {% endfor %}
-          </p>
-          {% endif %}
-          {% if article.translations %}
-          <p class="m-0">
-            Translations:
-            {% for translation in article.translations %}
-            <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>{{ "," if not loop.last else "" }}
-            {% endfor %}
-          </p>
-          {% endif %}
-        </div>
-        {% endif %}
-      </article>
+      </section>
+      {% endfor %}
     </div>
-  </div>
-  {% endfor %}
+    {% if articles_page.has_other_pages() %}
+    {% include 'pagination.html' %}
+    {% endif %}
+  </section>
 </div>
-{% if articles_page.has_other_pages() %}
-{% include 'pagination.html' %}
-{% endif %}
 {% endblock content %}

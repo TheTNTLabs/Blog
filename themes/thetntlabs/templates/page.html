@@ -14,21 +14,10 @@
 {% endblock %}
 
 {% block content %}
-<article>
-  <header>
+<div class="container mt-2">
+  <section id="{{ page.slug }}">
     <h1>{{ page.title }}</h1>
-    {% if page.modified %}
-    <p>Modified: <time datetime="{{ page.modified.isoformat() }}">{{ page.locale_modified }}</time></p>
-    {% endif %}
-    {% if page.translations %}
-    <p>
-      Translations:
-      {% for translation in page.translations %}
-      <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>{{ "," if not loop.last else "" }}
-      {% endfor %}
-    </p>
-    {% endif %}
-  </header>
-  {{ page.content }}
-</article>
+    {{ page.content }}
+  </section>
+</div>
 {% endblock %}

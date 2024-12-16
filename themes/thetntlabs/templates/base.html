@@ -5,37 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://design.thetntlabs.us.to/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://design.thetntlabs.us.to/css/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://design.thetntlabs.us.to/css/thetntlabs.css">
     <link rel="icon" href="https://design.thetntlabs.us.to/img/logo-32x32.png">
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-    <meta name="generator" content="Pelican (https://getpelican.com/)">
-    {% if FEED_ALL_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed">
-    {% endif %}
-    {% if FEED_ALL_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed">
-    {% endif %}
-    {% if FEED_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed">
-    {% endif %}
-    {% if FEED_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed">
-    {% endif %}
-    {% if CATEGORY_FEED_ATOM and category %}
-    <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed">
-    {% endif %}
-    {% if CATEGORY_FEED_RSS and category %}
-    <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed">
-    {% endif %}
-    {% if TAG_FEED_ATOM and tag %}
-    <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed">
-    {% endif %}
-    {% if TAG_FEED_RSS and tag %}
-    <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed">
-    {% endif %}
+    <meta name="generator" content="Pelican {{ PELICAN_VERSION }}">
+    {% include 'feed_links.html' %}
     {% endblock head %}
   </head>
-  <body>
+  <body class="bg-body-tertiary">
     <nav class="navbar navbar-expand-sm bg-info visually-hidden-focusable" aria-label="Accessibility navigation">
       <div class="container">
         <div class="navbar-nav">
@@ -43,57 +21,39 @@
         </div>
       </div>
     </nav>
-    <nav class="navbar navbar-expand-sm bg-thetntlabs" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-sm bg-main" aria-label="Main navigation">
       <div class="container">
-        <a class="navbar-brand" href="/">
-          <img src="https://design.thetntlabs.us.to/img/logo-32x32.png" alt="TheTNTLabs" class="align-top">
-          {{ SITENAME }}
+        <a class="navbar-brand" href="{{ PARENTURL }}">
+          <img src="https://design.thetntlabs.us.to/img/logo-32x32.png" alt="TheTNTLabs Logo" class="align-top">
+          {{ PARENTNAME }}
         </a>
         <input type="checkbox" id="navbar-toggler-checkbox">
-        <label class="navbar-toggler" for="navbar-toggler-checkbox" role="button" tabindex="0" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <label class="navbar-toggler" for="navbar-toggler-checkbox" role="button" tabindex="0" aria-controls="navbarNav" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </label>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-          {% for title, link, target in MENUITEMS %}
-            <a class="nav-link" target="{{ target }}" href="{{ link }}">{{ title }}</a>
-          {% endfor %}
-          {% if DISPLAY_PAGES_ON_MENU %}
-            {% if pages %}
-            <hr>
-            {% endif %}
-            {% for pag in pages %}
-            <a{% if pag == page %} class="nav-link active"{% endif %} class="nav-link" href="/{{ pag.url }}">{{ pag.title }}</a>
+            {% for title, link, target, active in MENUITEMS %}
+            <a class="nav-link{{ ' active' if active }}" target="{{ target }}" href="{{ link }}">{{ title }}</a>
             {% endfor %}
-          {% endif %}
-          {% if DISPLAY_CATEGORIES_ON_MENU %}
-            {% if categories %}
-            <hr>
-            {% endif %}
-            {% for cat, art in categories %}
-            <a{% if cat == category %} class="nav-link active"{% endif %} class="nav-link" href="/{{ cat.url }}">{{ cat }} <span class="badge text-bg-secondary">{{ art|count }}</span></a>
-            {% endfor %}
-          {% endif %}
           </div>
         </div>
       </div>
     </nav>
     <main>
-      <div class="container">
-        <section id="content">
-          {% filter indent(width=10, first=True) %}
-          {% block content %}
-          {% endblock %}
-          {% endfilter %}
-        </section>
-      </div>
+      <section id="content">
+        {% filter indent(width=8, first=True) %}
+        {% block content %}
+        {% endblock %}
+        {% endfilter %}
+      </section>
     </main>
     <footer class="text-center">
       <div class="container-fluid text-bg-dark p-2">
         <p class="m-0">
           Copyright © {{ AUTHOR }}.
-          <a class="text-reset" target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE">LICENSE (Blog)</a>
-          <a class="text-reset" target="_blank" href="https://codeberg.org/TheTNTLabs/Design/src/branch/main/LICENSE">LICENSE (Design)</a>
+          <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE.md">LICENSE (Blog)</a>
+          <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/src/branch/main/LICENSE.md">LICENSE (Design)</a>
         </p>
       </div>
     </footer>

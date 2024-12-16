@@ -3,15 +3,20 @@
 {% block title %}Archives - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<h1>Archives for {{ SITENAME }}</h1>
-<table class="table">
-  <tbody>
-    {% for article in dates %}
-    <tr>
-      <td>{{ article.locale_date }}</td>
-      <td><a class="text-reset" href="/{{ article.url }}">{{ article.title }}</a></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="container mt-2">
+  <section id="archives">
+    <h1 class="text-center">Archives</h1>
+    {% include 'navigation.html' %}
+    <table class="table shadow-sm">
+      <tbody>
+        {% for article in dates %}
+        <tr>
+          <td>{{ article.locale_date }}</td>
+          <td><a href="/{{ article.url }}">{{ article.title }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 {% endblock %}

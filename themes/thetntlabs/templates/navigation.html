@@ -1,0 +1,8 @@
+{% filter indent(width=4, first=True) %}
+<nav class="nav nav-fill nav-pills bg-body shadow-sm rounded justify-content-center mb-3" aria-label="Blog navigation">
+  <a class="nav-link text-reset{{ ' active' if output_file.startswith('archive') }}" href="/archives">Archives</a>
+  <a class="nav-link text-reset{{ ' active' if output_file.startswith('author') }}" href="/authors">Authors</a>
+  <a class="nav-link text-reset{{ ' active' if output_file.startswith('categor') }}" href="/categories">Categories</a>
+  <a class="nav-link text-reset{{ ' active' if output_file.startswith('tag') }}" href="/tags">Tags</a>
+</nav>
+{% endfilter %}

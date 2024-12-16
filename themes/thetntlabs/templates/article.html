@@ -5,52 +5,89 @@
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
 
 {% block head %}
-  {{ super() }}
-  {% if article.translations %}
+    {{ super() }}
+    <meta name="og:title" content="{{ article.title }}">
+    <meta name="og:type" content="article">
+    {% if article.image %}
+    <meta name="og:image" content="{{ article.image }}">
+    <meta name="og:image:alt" content="{{ article.image_alt }}">
+    {% endif %}
+    <meta name="og:url" content="{{ SITEURL }}/{{ article.url }}">
+    {% if article.description %}
+    <meta name="og:description" content="{{ article.description }}">
+    {% endif %}
+    <meta name="og:locale" content="{{ article.lang }}">
     {% for translation in article.translations %}
-    <link rel="alternate" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">
+    <meta name="og:locale:alternate" content="{{ translation.lang }}">
     {% endfor %}
-  {% endif %}
-  {% if article.author %}
-    <meta name="author" content="{{ article.author }}">
-  {% endif %}
-  {% if article.summary %}
-    <meta name="description" content="{{ article.summary|striptags }}">
-  {% endif %}
-  {% if article.tags %}
-    <meta name="keywords" content="{% for tag in article.tags %}{{ tag }}{{ ", " if not loop.last else "" }}{% endfor %}">
-  {% endif %}
+    <meta name="article:published_time" content="{{ article.date.isoformat() }}">
+    {% if article.modified %}
+    <meta name="article:modified_time" content="{{ article.modified.isoformat() }}">
+    {% endif %}
+    {% for author in article.authors %}
+    <meta name="article:author" content="{{ author }}">
+    {% endfor %}
+    {% if article.category %}
+    <meta name="article:section" content="{{ article.category }}">
+    {% endif %}
+    {% for tag in article.tags %}
+    <meta name="article:tag" content="{{ tag }}">
+    {% endfor %}
 {% endblock %}
 
 {% block content %}
-<article>
-  <header class="mb-2">
+<div class="container mt-2">
+  <section id="{{ article.slug }}">
     <h1>{{ article.title }}</h1>
-    <p class="m-0"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% if article.modified %} (Modified on <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>){% endif %}</p>
-    <p class="m-0">
-      By
+    <div class="d-flex flex-wrap gap-2 my-2">
       {% for author in article.authors %}
-      <a class="text-reset" href="/{{ author.url }}">{{ author }}</a>{{ "," if not loop.last else "" }}
+      <a href="/{{ author.url }}" title="Author">
+        <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+          <i class="bi bi-person"></i>
+          {{ author }}
+        </span>
+      </a>
       {% endfor %}
-    </p>
-    <p class="m-0">In <a class="text-reset" href="/{{ article.category.url }}">{{ article.category }}</a></p>
-    {% if article.tags %}
-    <p class="m-0">
-      Tags:
+      <a href="#" title="Published">
+        <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+          <i class="bi bi-clock"></i>
+          <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+        </span>
+      </a>
+      {% if article.modified %}
+      <a href="#" title="Modified">
+        <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+          <i class="bi bi-clock-history"></i>
+          <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>
+        </span>
+      </a>
+      {% endif %}
+      {% if article.category %}
+      <a href="/{{ article.category.url }}" title="Category">
+        <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+          <i class="bi bi-folder"></i>
+          {{ article.category }}
+        </span>
+      </a>
+      {% endif %}
       {% for tag in article.tags %}
-      <a class="text-reset" href="/{{ tag.url }}">{{ tag }}</a>{{ "," if not loop.last else "" }}
+      <a href="/{{ tag.url }}" title="Tag">
+        <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+          <i class="bi bi-tag"></i>
+          {{ tag }}
+        </span>
+      </a>
       {% endfor %}
-    </p>
-    {% endif %}
-    {% if article.translations %}
-    <p class="m-0">
-      Translations:
       {% for translation in article.translations %}
-      <a class="text-reset" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">{{ translation.lang }}</a>{{ "," if not loop.last else "" }}
+      <a hreflang="{{ translation.lang }}" href="/{{ translation.url }}" title="Translation">
+        <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+          <i class="bi bi-translate"></i>
+          {{ translation }}
+        </span>
+      </a>
       {% endfor %}
-    </p>
-    {% endif %}
-  </header>
-  {{ article.content }}
-</article>
+    </div>
+    {{ article.content }}
+  </section>
+</div>
 {% endblock %}
