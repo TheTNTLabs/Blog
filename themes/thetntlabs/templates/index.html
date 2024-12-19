@@ -2,11 +2,11 @@
 {% block content %}
 <div class="container mt-2">
   <section id="{% block content_slug %}articles{% endblock %}">
-    <span class="text-center">
+    <div class="text-center">
       {% block content_title %}
       <h1>Articles</h1>
       {% endblock %}
-    </span>
+    </div>
     {% include 'feed_badges.html' %}
     {% include 'navigation.html' %}
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
@@ -29,7 +29,7 @@
                 </div>
                 <small class="text-body-secondary">
                   <a href="/{{ article.author.url }}">{{ article.author }}</a>
-                  ·
+                  <i class="bi bi-dot"></i>
                   <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
                 </small>
               </div>

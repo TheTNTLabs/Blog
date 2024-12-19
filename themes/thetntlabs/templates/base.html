@@ -40,13 +40,11 @@
         </div>
       </div>
     </nav>
-    <main>
-      <section id="content">
-        {% filter indent(width=8, first=True) %}
-        {% block content %}
-        {% endblock %}
-        {% endfilter %}
-      </section>
+    <main id="content">
+      {% filter indent(width=6, first=True) %}
+      {% block content %}
+      {% endblock %}
+      {% endfilter %}
     </main>
     <footer class="text-center">
       <div class="container-fluid text-bg-dark p-2">
