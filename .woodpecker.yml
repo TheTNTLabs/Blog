@@ -1,14 +1,17 @@
 steps:
-  build:
+  - build:
     image: python
     commands:
-    - pip install "pelican[markdown]"
-    - pelican content
-  deploy:
+      - pip install "pelican[markdown]"
+      - pelican content
+  - deploy:
     image: node
     commands:
-    - npx wrangler pages deploy static-deployment --project-name=$CLOUDFLARE_PAGES_PROJECT_NAME
-    secrets:
-    - cloudflare_account_id
-    - cloudflare_api_token
-    - cloudflare_pages_project_name
+      - npx wrangler pages deploy static-deployment --project-name=$CLOUDFLARE_PAGES_PROJECT_NAME
+    environment:
+      CLOUDFLARE_ACCOUNT_ID:
+        from_secret: cloudflare_account_id
+      CLOUDFLARE_API_TOKEN:
+        from_secret: cloudflare_api_token
+      CLOUDFLARE_PAGES_PROJECT_NAME:
+        from_secret: cloudflare_pages_project_name
