@@ -1,10 +1,10 @@
 steps:
-  - build:
+  - name: build
     image: python
     commands:
       - pip install "pelican[markdown]"
       - pelican content
-  - deploy:
+  - name: deploy
     image: node
     commands:
       - npx wrangler pages deploy static-deployment --project-name=$CLOUDFLARE_PAGES_PROJECT_NAME
