@@ -15,10 +15,10 @@ PATH = 'content/'
 OUTPUT_PATH = 'static-deployment/'
 THEME = 'themes/thetntlabs/'
 STATIC_PATHS = [
-    'static/_headers',
+    'root/_headers',
     ]
 EXTRA_PATH_METADATA = {
-    'static/_headers': {'path': '_headers'},
+    'root/_headers': {'path': '_headers'},
     }
 
 DEFAULT_PAGINATION = 9
