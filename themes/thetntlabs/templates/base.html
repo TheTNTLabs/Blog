@@ -4,13 +4,14 @@
     {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://design.thetntlabs.us.to/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://design.thetntlabs.us.to/css/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://design.thetntlabs.us.to/css/thetntlabs.css">
-    <link rel="icon" href="https://design.thetntlabs.us.to/img/logo-32x32.png">
+    <link rel="stylesheet" href="https://design.thetntlabs.us.to/bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://design.thetntlabs.us.to/fa/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://design.thetntlabs.us.to/fa/css/brands.min.css">
+    <link rel="stylesheet" href="https://design.thetntlabs.us.to/fa/css/solid.min.css">
+    <link rel="stylesheet" href="https://design.thetntlabs.us.to/ttl/css/thetntlabs.css">
+    <link rel="icon" href="https://design.thetntlabs.us.to/ttl/img/logo-32x32.png">
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta name="generator" content="Pelican {{ PELICAN_VERSION }}">
-    {% include 'feed_links.html' %}
     {% endblock head %}
   </head>
   <body class="bg-body-tertiary">
@@ -24,16 +25,16 @@
     <nav class="navbar navbar-expand-sm bg-main" aria-label="Main navigation">
       <div class="container">
         <a class="navbar-brand" href="{{ PARENTURL }}">
-          <img src="https://design.thetntlabs.us.to/img/logo-32x32.png" alt="TheTNTLabs Logo" class="align-top">
+          <img src="https://design.thetntlabs.us.to/ttl/img/logo-32x32.png" alt="TheTNTLabs Logo" class="align-top">
           {{ PARENTNAME }}
         </a>
         <input type="checkbox" id="navbar-toggler-checkbox">
         <label class="navbar-toggler" for="navbar-toggler-checkbox" role="button" tabindex="0" aria-controls="navbarNav" aria-label="Toggle navigation">
-          <i class="bi bi-list fs-1"></i>
+          <i class="fa-solid fa-bars fs-1"></i>
         </label>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-            {% for title, link, target, active in MENUITEMS %}
+            {% for title, link, target, active in MAINNAV %}
             <a class="nav-link{{ ' active' if active }}" target="{{ target }}" href="{{ link }}">{{ title }}</a>
             {% endfor %}
           </div>
@@ -47,7 +48,7 @@
       {% endfilter %}
     </main>
     <footer class="text-center">
-      <div class="container-fluid text-bg-dark p-2">
+      <div class="container-fluid bg-body p-2">
         <p class="m-0">
           Copyright © {{ AUTHOR }}.
           <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE.md">LICENSE (Blog)</a>

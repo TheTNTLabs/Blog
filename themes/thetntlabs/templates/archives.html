@@ -6,7 +6,9 @@
 <div class="container mt-2">
   <section id="archives">
     <h1 class="text-center">Archives</h1>
+    {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
+    {% endfilter %}
     <table class="table shadow-sm">
       <tbody>
         {% for article in dates %}

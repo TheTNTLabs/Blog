@@ -6,25 +6,38 @@ SITENAME = 'TheTNTLabs Blog'
 SITEURL = 'https://blog.thetntlabs.us.to'
 PARENTNAME = 'TheTNTLabs'
 PARENTURL = 'https://www.thetntlabs.us.to/'
-MENUITEMS = (('Blog', '/', '_self', True),
-             ('Chat', 'https://thetntlabs.zulipchat.com/', '_blank', False),
-             ('Source', 'https://codeberg.org/TheTNTLabs', '_blank', False),
-             ('Status', 'https://status.thetntlabs.us.to/', '_self', False))
+MAINNAV = (
+    ('Blog', '/', '_self', True),
+    ('Chat', 'https://thetntlabs.zulipchat.com/', '_blank', False),
+    ('Source', 'https://codeberg.org/TheTNTLabs', '_blank', False),
+    ('Status', 'https://status.thetntlabs.us.to/', '_self', False)
+  )
+BLOGNAV = (
+    ('Archives', '/archives', 'archive'),
+    ('Authors', '/authors', 'author'),
+    ('Categories', '/categories', 'categor'),
+    ('Tags', '/tags', 'tag')
+  )
 
 PATH = 'content/'
 OUTPUT_PATH = 'static-deployment/'
 THEME = 'themes/thetntlabs/'
 STATIC_PATHS = [
     'root/_headers',
-    ]
+  ]
 EXTRA_PATH_METADATA = {
     'root/_headers': {'path': '_headers'},
-    }
+  }
 
-DEFAULT_PAGINATION = 9
-DEFAULT_LANG = 'en-us'
-DEFAULT_DATE_FORMAT = '%B %d, %Y'
-TIMEZONE = 'America/New_York'
+DEFAULT_LANG = 'en'
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
+TIMEZONE = 'Etc/UTC'
+
+DEFAULT_PAGINATION = 12
+PAGINATION_PATTERNS = (
+  (1, '{base_name}', '{save_as}'),
+  (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
+)
 
 DELETE_OUTPUT_DIRECTORY = True
 
@@ -48,8 +61,3 @@ CATEGORY_URL = 'category/{slug}'
 
 TAG_SAVE_AS = 'tag/{slug}.html'
 TAG_URL = 'tag/{slug}'
-
-PAGINATION_PATTERNS = (
-    (1, '{base_name}', '{save_as}'),
-    (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
-)

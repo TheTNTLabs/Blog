@@ -2,37 +2,39 @@
 
 {% block html_lang %}{{ article.lang }}{% endblock %}
 
-{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+{% block title %}{{ article.title | striptags }} - {{ SITENAME }}{% endblock %}
 
 {% block head %}
-    {{ super() }}
-    <meta name="og:title" content="{{ article.title }}">
-    <meta name="og:type" content="article">
-    {% if article.image %}
-    <meta name="og:image" content="{{ article.image }}">
-    <meta name="og:image:alt" content="{{ article.image_alt }}">
-    {% endif %}
-    <meta name="og:url" content="{{ SITEURL }}/{{ article.url }}">
-    {% if article.description %}
-    <meta name="og:description" content="{{ article.description }}">
-    {% endif %}
-    <meta name="og:locale" content="{{ article.lang }}">
-    {% for translation in article.translations %}
-    <meta name="og:locale:alternate" content="{{ translation.lang }}">
-    {% endfor %}
-    <meta name="article:published_time" content="{{ article.date.isoformat() }}">
-    {% if article.modified %}
-    <meta name="article:modified_time" content="{{ article.modified.isoformat() }}">
-    {% endif %}
-    {% for author in article.authors %}
-    <meta name="article:author" content="{{ author }}">
-    {% endfor %}
-    {% if article.category %}
-    <meta name="article:section" content="{{ article.category }}">
-    {% endif %}
-    {% for tag in article.tags %}
-    <meta name="article:tag" content="{{ tag }}">
-    {% endfor %}
+{{ super() }}
+{% filter indent(width=4, first=True) %}
+<meta name="og:title" content="{{ article.title }}">
+<meta name="og:type" content="article">
+{% if article.image %}
+<meta name="og:image" content="{{ article.image }}">
+<meta name="og:image:alt" content="{{ article.image_alt }}">
+{% endif %}
+<meta name="og:url" content="{{ SITEURL }}/{{ article.url }}">
+{% if article.description %}
+<meta name="og:description" content="{{ article.description }}">
+{% endif %}
+<meta name="og:locale" content="{{ article.lang }}">
+{% for translation in article.translations %}
+<meta name="og:locale:alternate" content="{{ translation.lang }}">
+{% endfor %}
+<meta name="article:published_time" content="{{ article.date.isoformat() }}">
+{% if article.modified %}
+<meta name="article:modified_time" content="{{ article.modified.isoformat() }}">
+{% endif %}
+{% for author in article.authors %}
+<meta name="article:author" content="{{ author }}">
+{% endfor %}
+{% if article.category %}
+<meta name="article:section" content="{{ article.category }}">
+{% endif %}
+{% for tag in article.tags %}
+<meta name="article:tag" content="{{ tag }}">
+{% endfor %}
+{% endfilter %}
 {% endblock %}
 
 {% block content %}
@@ -43,21 +45,21 @@
       {% for author in article.authors %}
       <a href="/{{ author.url }}" title="Author">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-user"></i>
           {{ author }}
         </span>
       </a>
       {% endfor %}
       <a href="#" title="Published">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-          <i class="bi bi-clock"></i>
+          <i class="fa-solid fa-clock"></i>
           <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
         </span>
       </a>
       {% if article.modified %}
       <a href="#" title="Modified">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-          <i class="bi bi-clock-history"></i>
+          <i class="fa-solid fa-clock-rotate-left"></i>
           <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>
         </span>
       </a>
@@ -65,7 +67,7 @@
       {% if article.category %}
       <a href="/{{ article.category.url }}" title="Category">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-          <i class="bi bi-folder"></i>
+          <i class="fa-solid fa-folder"></i>
           {{ article.category }}
         </span>
       </a>
@@ -73,7 +75,7 @@
       {% for tag in article.tags %}
       <a href="/{{ tag.url }}" title="Tag">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-          <i class="bi bi-tag"></i>
+          <i class="fa-solid fa-tag"></i>
           {{ tag }}
         </span>
       </a>
@@ -81,7 +83,7 @@
       {% for translation in article.translations %}
       <a hreflang="{{ translation.lang }}" href="/{{ translation.url }}" title="Translation">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-          <i class="bi bi-translate"></i>
+          <i class="fa-solid fa-language"></i>
           {{ translation }}
         </span>
       </a>

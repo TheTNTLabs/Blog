@@ -1,27 +1,32 @@
-{% filter indent(width=4, first=True) %}
-{% if DEFAULT_PAGINATION %}
+{% if articles_page.has_other_pages() %}
+{% set current_page = articles_page.number %}
 {% set first_page = articles_paginator.page(1) %}
 {% set last_page = articles_paginator.page(articles_paginator.num_pages) %}
+{% set start_page = [1, current_page - 2] | max %}
+{% set end_page = [articles_paginator.num_pages, current_page + 2] | min %}
 <nav aria-label="Pagination">
-  <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center flex-wrap">
     {% if articles_page.has_previous() %}
-    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ first_page.url }}" title="First page"><i class="bi bi-chevron-bar-left"></i></a></li>
-    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ articles_previous_page.url }}" title="Previous page"><i class="bi bi-chevron-left"></i></a></li>
+    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ first_page.url }}" title="First page"><i class="fa-solid fa-angles-left"></i></a></li>
+    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ articles_previous_page.url }}" title="Previous page"><i class="fa-solid fa-angle-left"></i></a></li>
     {% else %}
-    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="First page"><i class="bi bi-chevron-bar-left"></i></a></li>
-    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="Previous page"><i class="bi bi-chevron-left"></i></a></li>
+    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="First page"><i class="fa-solid fa-angles-left"></i></a></li>
+    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="Previous page"><i class="fa-solid fa-angle-left"></i></a></li>
     {% endif %}
-    {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
-    <li class="page-item shadow-sm{{ ' active' if num == articles_page.number }}"><a class="page-link text-reset" href="/{{ articles_paginator.page(num).url if num > 1 else first_page.url }}">{{ num }}</a>
+    {% for page in range(start_page, current_page) %}
+    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ articles_paginator.page(page).url }}">{{ page }}</a>
+    {% endfor %}
+    <li class="page-item shadow-sm active"><a class="page-link text-reset" href="/{{ articles_paginator.page(current_page).url }}">{{ current_page }}</a>
+    {% for page in range(current_page + 1, end_page + 1) %}
+    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ articles_paginator.page(page).url }}">{{ page }}</a>
     {% endfor %}
     {% if articles_page.has_next() %}
-    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ articles_next_page.url }}" title="Next page"><i class="bi bi-chevron-right"></i></a></li>
-    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ last_page.url }}" title="Last page"><i class="bi bi-chevron-bar-right"></i></a></li>
+    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ articles_next_page.url }}" title="Next page"><i class="fa-solid fa-angle-right"></i></a></li>
+    <li class="page-item shadow-sm"><a class="page-link text-reset" href="/{{ last_page.url }}" title="Last page"><i class="fa-solid fa-angles-right"></i></a></li>
     {% else %}
-    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="Next page"><i class="bi bi-chevron-right"></i></a></li>
-    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="Last page"><i class="bi bi-chevron-bar-right"></i></a></li>
+    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="Next page"><i class="fa-solid fa-angle-right"></i></a></li>
+    <li class="page-item shadow-sm disabled"><a class="page-link text-reset" href="#" title="Last page"><i class="fa-solid fa-angles-right"></i></a></li>
     {% endif %}
   </ul>
 </nav>
 {% endif %}
-{% endfilter %}

@@ -4,11 +4,19 @@
 [![license-badge](https://img.shields.io/badge/license-CC--BY--4.0_&_MIT-blue)](https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE.md)
 [![chat-badge](https://img.shields.io/badge/chat-on_Zulip-blue)](https://thetntlabs.zulipchat.com/)
 
-## 1. Install Python packages
-`python3 -m pip install "pelican[markdown]"`
+## Setup
 
-## 2. Generate static files
-`pelican content`
+### 1. Install Python packages
+```bash
+python3 -m pip install "pelican[markdown]"
+```
 
-## 3. Serve generated files locally
-`python3 -m http.server -d static-deployment/`
+### 2. Generate static files
+```bash
+pelican content
+```
+
+### 3. Serve generated files locally
+```bash
+python3 -m http.server -d static-deployment/
+```

@@ -1,14 +1,22 @@
 {% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+{% filter indent(width=4, first=True) %}
+{% include 'feed_links.html' %}
+{% endfilter %}
+{% endblock %}
+
 {% block content %}
 <div class="container mt-2">
-  <section id="{% block content_slug %}articles{% endblock %}">
-    <div class="text-center">
-      {% block content_title %}
-      <h1>Articles</h1>
-      {% endblock %}
-    </div>
+  <section id="{% block content_slug %}{{ SITENAME | replace(' ', '-') | lower }}{% endblock %}">
+    <h1 class="text-center">{% block content_title %}{{ SITENAME }}{% endblock %}</h1>
+    {% filter indent(width=4, first=True) %}
     {% include 'feed_badges.html' %}
+    {% endfilter %}
+    {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
+    {% endfilter %}
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
       {% for article in articles_page.object_list %}
       <section id="{{ article.slug }}">
@@ -18,18 +26,16 @@
             <div class="card-body">
               <h2 class="card-title h5">{{ article.title }}</h2>
               <p class="card-text text-truncate">{{ article.description }}</p>
-              <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center flex-wrap">
                 <div class="btn-group">
-                  <a class="btn btn-sm btn-outline-secondary" target="_self" href="/{{ article.url }}">Read</a>
-                  {% if article.discuss %}
-                  <a class="btn btn-sm btn-outline-secondary" target="_blank" href="{{ article.discuss }}" title="Discuss">
-                    <i class="bi bi-chat"></i>
-                  </a>
-                  {% endif %}
+                  <a class="btn btn-sm btn-outline-secondary" href="/{{ article.url }}">Read</a>
+                  {% filter indent(width=18, first=True) %}
+                  {% include 'discussion_links.html' %}
+                  {% endfilter %}
                 </div>
                 <small class="text-body-secondary">
                   <a href="/{{ article.author.url }}">{{ article.author }}</a>
-                  <i class="bi bi-dot"></i>
+                  ·
                   <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
                 </small>
               </div>
@@ -39,9 +45,9 @@
       </section>
       {% endfor %}
     </div>
-    {% if articles_page.has_other_pages() %}
+    {% filter indent(width=4, first=True) %}
     {% include 'pagination.html' %}
-    {% endif %}
+    {% endfilter %}
   </section>
 </div>
 {% endblock content %}

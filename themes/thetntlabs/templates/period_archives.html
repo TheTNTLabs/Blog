@@ -6,7 +6,9 @@
 <div class="container mt-2">
   <section id="archives-for-{{ period | reverse | join(' ') | replace(' ', '-') | lower }}">
     <h1 class="text-center">Archives for {{ period | reverse | join(' ') }}</h1>
+    {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
+    {% endfilter %}
     <table class="table shadow-sm">
       <tbody>
         {% for article in dates %}

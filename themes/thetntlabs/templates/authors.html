@@ -6,14 +6,16 @@
 <div class="container mt-2">
   <section id="authors">
     <h1 class="text-center">Authors</h1>
+    {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
+    {% endfilter %}
     <table class="table shadow-sm">
       <tbody>
-        {% for author, articles in authors|sort %}
+        {% for author, articles in authors | sort %}
         <tr>
           <td>
             <a href="/{{ author.url }}">{{ author }}</a>
-            <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles|count }}</span>
+            <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles | count }}</span>
           </td>
         </tr>
         {% endfor %}
