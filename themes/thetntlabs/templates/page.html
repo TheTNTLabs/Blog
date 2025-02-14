@@ -5,12 +5,22 @@
 {% block title %}{{ page.title | striptags }} - {{ SITENAME }}{%endblock%}
 
 {% block head %}
-  {{ super() }}
-  {% if page.translations %}
+{{ super() }}
+    <meta name="og:title" content="{{ page.title }}">
+    <meta name="og:type" content="website">
+    {% if page.image %}
+    <meta name="og:image" content="{{ page.image }}">
+    <meta name="og:image:alt" content="{{ page.image_alt }}">
+    {% endif %}
+    <meta name="og:url" content="{{ SITEURL }}/{{ page.url }}">
+    {% if page.description %}
+    <meta name="og:description" content="{{ page.description }}">
+    {% endif %}
+    <meta name="og:locale" content="{{ page.lang }}">
     {% for translation in page.translations %}
-    <link rel="alternate" hreflang="{{ translation.lang }}" href="/{{ translation.url }}">
+    <meta name="og:locale:alternate" content="{{ translation.lang }}">
     {% endfor %}
-  {% endif %}
+    <meta name="og:site_name" content="{{ SITENAME }}">
 {% endblock %}
 
 {% block content %}

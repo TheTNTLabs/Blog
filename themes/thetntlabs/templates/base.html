@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://design.thetntlabs.us.to/fa/css/brands.min.css">
     <link rel="stylesheet" href="https://design.thetntlabs.us.to/fa/css/solid.min.css">
     <link rel="stylesheet" href="https://design.thetntlabs.us.to/ttl/css/thetntlabs.css">
-    <link rel="icon" href="https://design.thetntlabs.us.to/ttl/img/logo-32x32.png">
+    <link rel="icon" href="{{ PARENTIMG }}">
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta name="generator" content="Pelican {{ PELICAN_VERSION }}">
     {% endblock head %}
@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-sm bg-main" aria-label="Main navigation">
       <div class="container">
         <a class="navbar-brand" href="{{ PARENTURL }}">
-          <img src="https://design.thetntlabs.us.to/ttl/img/logo-32x32.png" alt="TheTNTLabs Logo" class="align-top">
+          <img src="{{ PARENTIMG }}" alt="{{ PARENTIMGALT }}" class="align-top">
           {{ PARENTNAME }}
         </a>
         <input type="checkbox" id="navbar-toggler-checkbox">

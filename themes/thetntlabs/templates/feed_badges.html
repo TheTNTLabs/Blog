@@ -1,83 +1,80 @@
-<div class="d-flex flex-wrap gap-2 mb-3 justify-content-center">
-  {% if AUTHOR_FEED_ATOM and author %}
-  <a href="/{% if AUTHOR_FEED_ATOM_URL %}{{ AUTHOR_FEED_ATOM_URL.format(slug=author.slug) }}{% else %}{{ AUTHOR_FEED_ATOM.format(slug=author.slug) }}{% endif %}" title="Atom feed for {{ author }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-atom"></i>
-      Author
-    </span>
-  </a>
-  {% endif %}
-  {% if AUTHOR_FEED_RSS and author %}
-  <a href="/{% if AUTHOR_FEED_RSS_URL %}{{ AUTHOR_FEED_RSS_URL.format(slug=author.slug) }}{% else %}{{ AUTHOR_FEED_RSS.format(slug=author.slug) }}{% endif %}" title="RSS feed for {{ author }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-rss"></i>
-      Author
-    </span>
-  </a>
-  {% endif %}
-  {% if CATEGORY_FEED_ATOM and category %}
-  <a href="/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" title="Atom feed for {{ category }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-atom"></i>
-      Category
-    </span>
-  </a>
-  {% endif %}
-  {% if CATEGORY_FEED_RSS and category %}
-  <a href="/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" title="RSS feed for {{ category }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-rss"></i>
-      Category
-    </span>
-  </a>
-  {% endif %}
-  {% if TAG_FEED_ATOM and tag %}
-  <a href="/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" title="Atom feed for {{ tag }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-atom"></i>
-      Tag
-    </span>
-  </a>
-  {% endif %}
-  {% if TAG_FEED_RSS and tag %}
-  <a href="/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" title="RSS feed for {{ tag }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-rss"></i>
-      Tag
-    </span>
-  </a>
-  {% endif %}
-  {% if FEED_ALL_ATOM %}
-  <a href="/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" title="Full Atom feed for {{ SITENAME }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-atom"></i>
-      All
-    </span>
-  </a>
-  {% endif %}
-  {% if FEED_ALL_RSS %}
-  <a href="/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" title="Full RSS feed for {{ SITENAME }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-rss"></i>
-      All
-    </span>
-  </a>
-  {% endif %}
-  {% if FEED_ATOM %}
-  <a href="/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" title="Atom feed for {{ SITENAME }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-atom"></i>
-      All
-    </span>
-  </a>
-  {% endif %}
-  {% if FEED_RSS %}
-  <a href="/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" title="RSS feed for {{ SITENAME }}">
-    <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
-      <i class="fa-solid fa-rss"></i>
-      All
-    </span>
-  </a>
-  {% endif %}
-</div>
-
+{% if AUTHOR_FEED_ATOM and author %}
+<a href="/{% if AUTHOR_FEED_ATOM_URL %}{{ AUTHOR_FEED_ATOM_URL.format(slug=author.slug) }}{% else %}{{ AUTHOR_FEED_ATOM.format(slug=author.slug) }}{% endif %}" title="Atom feed for {{ author }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-atom"></i>
+    Author
+  </span>
+</a>
+{% endif %}
+{% if AUTHOR_FEED_RSS and author %}
+<a href="/{% if AUTHOR_FEED_RSS_URL %}{{ AUTHOR_FEED_RSS_URL.format(slug=author.slug) }}{% else %}{{ AUTHOR_FEED_RSS.format(slug=author.slug) }}{% endif %}" title="RSS feed for {{ author }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-rss"></i>
+    Author
+  </span>
+</a>
+{% endif %}
+{% if CATEGORY_FEED_ATOM and category %}
+<a href="/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" title="Atom feed for {{ category }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-atom"></i>
+    Category
+  </span>
+</a>
+{% endif %}
+{% if CATEGORY_FEED_RSS and category %}
+<a href="/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" title="RSS feed for {{ category }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-rss"></i>
+    Category
+  </span>
+</a>
+{% endif %}
+{% if TAG_FEED_ATOM and tag %}
+<a href="/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" title="Atom feed for {{ tag }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-atom"></i>
+    Tag
+  </span>
+</a>
+{% endif %}
+{% if TAG_FEED_RSS and tag %}
+<a href="/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" title="RSS feed for {{ tag }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-rss"></i>
+    Tag
+  </span>
+</a>
+{% endif %}
+{% if FEED_ALL_ATOM %}
+<a href="/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" title="Full Atom feed for {{ SITENAME }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-atom"></i>
+    All
+  </span>
+</a>
+{% endif %}
+{% if FEED_ALL_RSS %}
+<a href="/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" title="Full RSS feed for {{ SITENAME }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-rss"></i>
+    All
+  </span>
+</a>
+{% endif %}
+{% if FEED_ATOM %}
+<a href="/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" title="Atom feed for {{ SITENAME }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-atom"></i>
+    All
+  </span>
+</a>
+{% endif %}
+{% if FEED_RSS %}
+<a href="/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" title="RSS feed for {{ SITENAME }}">
+  <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
+    <i class="fa-solid fa-rss"></i>
+    All
+  </span>
+</a>
+{% endif %}

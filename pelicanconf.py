@@ -6,6 +6,8 @@ SITENAME = 'TheTNTLabs Blog'
 SITEURL = 'https://blog.thetntlabs.us.to'
 PARENTNAME = 'TheTNTLabs'
 PARENTURL = 'https://www.thetntlabs.us.to/'
+PARENTIMG = 'https://design.thetntlabs.us.to/ttl/img/logo-32x32.png'
+PARENTIMGALT = 'TheTNTLabs Logo'
 MAINNAV = (
     ('Blog', '/', '_self', True),
     ('Chat', 'https://thetntlabs.zulipchat.com/', '_blank', False),

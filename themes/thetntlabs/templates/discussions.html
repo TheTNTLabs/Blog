@@ -1,0 +1,20 @@
+{% if article.zulip_url %}
+<a class="btn btn-outline-dark" target="_blank" href="{{ article.zulip_url }}" title="Discuss on Zulip">
+  <i class="fa-solid fa-comments"></i>
+</a>
+{% endif %}
+{% if article.twitter_url %}
+<a class="btn btn-outline-dark" target="_blank" href="{{ article.twitter_url }}" title="Discuss on X (formerly Twitter)">
+  <i class="fa-brands fa-x-twitter"></i>
+</a>
+{% endif %}
+{% if article.mastodon_url %}
+<a class="btn btn-outline-dark" target="_blank" href="{{ article.mastodon_url }}" title="Discuss on Mastodon">
+  <i class="fa-brands fa-mastodon"></i>
+</a>
+{% endif %}
+{% if article.bluesky_url %}
+<a class="btn btn-outline-dark" target="_blank" href="{{ article.bluesky_url }}" title="Discuss on Bluesky">
+  <i class="fa-brands fa-bluesky"></i>
+</a>
+{% endif %}
