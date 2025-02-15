@@ -42,21 +42,21 @@
     <h1>{{ article.title }}</h1>
     <div class="d-flex flex-wrap gap-2 my-2">
       {% for author in article.authors %}
-      <a href="/{{ author.url }}" title="Author">
+      <a href="/{{ author.url }}" title="Author: {{ author }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-user"></i>
           {{ author }}
         </span>
       </a>
       {% endfor %}
-      <a href="#" title="Published">
+      <a href="#" title="Published: {{ article.locale_date }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-clock"></i>
           <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
         </span>
       </a>
       {% if article.modified %}
-      <a href="#" title="Modified">
+      <a href="#" title="Modified: {{ article.locale_modified }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-clock-rotate-left"></i>
           <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>
@@ -64,7 +64,7 @@
       </a>
       {% endif %}
       {% if article.category %}
-      <a href="/{{ article.category.url }}" title="Category">
+      <a href="/{{ article.category.url }}" title="Category: {{ article.category }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-folder"></i>
           {{ article.category }}
@@ -72,7 +72,7 @@
       </a>
       {% endif %}
       {% for tag in article.tags %}
-      <a href="/{{ tag.url }}" title="Tag">
+      <a href="/{{ tag.url }}" title="Tag: {{ tag }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-tag"></i>
           {{ tag }}
@@ -80,7 +80,7 @@
       </a>
       {% endfor %}
       {% for translation in article.translations %}
-      <a href="/{{ translation.url }}" hreflang="{{ translation.lang }}" title="Translation">
+      <a href="/{{ translation.url }}" hreflang="{{ translation.lang }}" title="Translation: {{ translation }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-language"></i>
           {{ translation }}
