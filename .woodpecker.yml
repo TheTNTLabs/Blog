@@ -1,5 +1,5 @@
 steps:
-  - name: build
+  - name: generate
     image: python
     commands:
       - pip install "pelican[markdown]"
