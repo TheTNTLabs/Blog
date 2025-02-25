@@ -38,22 +38,22 @@ TIMEZONE = 'Etc/UTC'
 DEFAULT_PAGINATION = 12
 PAGINATION_PATTERNS = (
   (1, '{base_name}', '{save_as}'),
-  (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
+  (2, '{base_name}/page/{number}', '{base_name}/page/{number}.html'),
 )
 
 DELETE_OUTPUT_DIRECTORY = True
 
-ARTICLE_SAVE_AS = 'article/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
-ARTICLE_URL = 'article/{date:%Y}/{date:%m}/{date:%d}/{slug}'
+ARTICLE_SAVE_AS = 'article/{slug}.html'
+ARTICLE_URL = 'article/{slug}'
 
-ARTICLE_LANG_SAVE_AS = 'article/{date:%Y}/{date:%m}/{date:%d}/{slug}-{lang}.html'
-ARTICLE_LANG_URL = 'article/{date:%Y}/{date:%m}/{date:%d}/{slug}-{lang}'
+ARTICLE_LANG_SAVE_AS = 'article/{slug}-{lang}.html'
+ARTICLE_LANG_URL = 'article/{slug}-{lang}'
 
 YEAR_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/index.html'
 YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
 
-MONTH_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/{date:%m}/index.html'
-MONTH_ARCHIVE_URL = 'archive/{date:%Y}/{date:%m}/'
+MONTH_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/{date:%m}.html'
+MONTH_ARCHIVE_URL = 'archive/{date:%Y}/{date:%m}'
 
 AUTHOR_SAVE_AS = 'author/{slug}.html'
 AUTHOR_URL = 'author/{slug}'
