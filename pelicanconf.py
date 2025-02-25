@@ -37,7 +37,7 @@ TIMEZONE = 'Etc/UTC'
 
 DEFAULT_PAGINATION = 12
 PAGINATION_PATTERNS = (
-  (1, '{base_name}', '{save_as}'),
+  (1, '{base_name}/', '{save_as}'),
   (2, '{base_name}/page/{number}', '{base_name}/page/{number}.html'),
 )
 
@@ -55,11 +55,11 @@ YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
 MONTH_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/{date:%m}.html'
 MONTH_ARCHIVE_URL = 'archive/{date:%Y}/{date:%m}'
 
-AUTHOR_SAVE_AS = 'author/{slug}.html'
-AUTHOR_URL = 'author/{slug}'
+AUTHOR_SAVE_AS = 'author/{slug}/index.html'
+AUTHOR_URL = 'author/{slug}/'
 
-CATEGORY_SAVE_AS = 'category/{slug}.html'
-CATEGORY_URL = 'category/{slug}'
+CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+CATEGORY_URL = 'category/{slug}/'
 
-TAG_SAVE_AS = 'tag/{slug}.html'
-TAG_URL = 'tag/{slug}'
+TAG_SAVE_AS = 'tag/{slug}/index.html'
+TAG_URL = 'tag/{slug}/'
