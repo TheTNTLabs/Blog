@@ -38,7 +38,7 @@ TIMEZONE = 'Etc/UTC'
 DEFAULT_PAGINATION = 12
 PAGINATION_PATTERNS = (
   (1, '{base_name}/', '{save_as}'),
-  (2, '{base_name}/page/{number}', '{base_name}/page/{number}.html'),
+  (2, '{base_name}/-/{number}', '{base_name}/-/{number}.html'),
 )
 
 DELETE_OUTPUT_DIRECTORY = True
