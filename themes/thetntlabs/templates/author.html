@@ -2,6 +2,8 @@
 
 {% block title %}{{ author }} - {{ SITENAME }}{% endblock %}
 
+{% block description %}Articles by {{ author }}{% endblock description %}
+
 {% block content_title %}Author: {{ author }}{% endblock %}
 
 {% block content_slug %}author-{{ author | lower }}{% endblock %}

@@ -3,6 +3,7 @@ PELICAN_VERSION = __version__
 
 AUTHOR = 'TheTNTLabs Gaming'
 SITENAME = 'TheTNTLabs Blog'
+SITEDESC = 'Gaming, with a bang!'
 SITEURL = 'https://blog.thetntlabs.us.to'
 PARENTNAME = 'TheTNTLabs'
 PARENTURL = 'https://www.thetntlabs.us.to/'
@@ -52,8 +53,8 @@ ARTICLE_LANG_URL = 'article/{slug}-{lang}'
 YEAR_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/index.html'
 YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
 
-MONTH_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/{date:%m}.html'
-MONTH_ARCHIVE_URL = 'archive/{date:%Y}/{date:%m}'
+MONTH_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/{date:%m}/index.html'
+MONTH_ARCHIVE_URL = 'archive/{date:%Y}/{date:%m}/'
 
 AUTHOR_SAVE_AS = 'author/{slug}/index.html'
 AUTHOR_URL = 'author/{slug}/'

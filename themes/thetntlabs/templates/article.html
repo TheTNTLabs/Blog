@@ -4,6 +4,8 @@
 
 {% block title %}{{ article.title | striptags }} - {{ SITENAME }}{% endblock %}
 
+{% block description %}{{ article.description }}{% endblock description %}
+
 {% block head %}
 {{ super() }}
     <meta name="og:title" content="{{ article.title }}">

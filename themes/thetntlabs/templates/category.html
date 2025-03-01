@@ -2,6 +2,8 @@
 
 {% block title %}{{ category }} - {{ SITENAME }}{% endblock %}
 
+{% block description %}Articles in the '{{ category }}' category{% endblock description %}
+
 {% block content_title %}Category: {{ category }}{% endblock %}
 
 {% block content_slug %}category-{{ category | lower }}{% endblock %}
