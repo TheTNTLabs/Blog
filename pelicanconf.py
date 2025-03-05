@@ -50,11 +50,8 @@ ARTICLE_URL = 'article/{slug}'
 ARTICLE_LANG_SAVE_AS = 'article/{slug}-{lang}.html'
 ARTICLE_LANG_URL = 'article/{slug}-{lang}'
 
-YEAR_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/index.html'
-YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
-
-MONTH_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/{date:%m}/index.html'
-MONTH_ARCHIVE_URL = 'archive/{date:%Y}/{date:%m}/'
+PAGE_SAVE_AS = 'page/{slug}.html'
+PAGE_URL = 'page/{slug}'
 
 AUTHOR_SAVE_AS = 'author/{slug}/index.html'
 AUTHOR_URL = 'author/{slug}/'
