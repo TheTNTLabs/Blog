@@ -27,9 +27,11 @@ OUTPUT_PATH = 'static-deployment/'
 THEME = 'themes/thetntlabs/'
 STATIC_PATHS = [
     'root/_headers',
+    'root/_redirects',
   ]
 EXTRA_PATH_METADATA = {
     'root/_headers': {'path': '_headers'},
+    'root/_redirects': {'path': '_redirects'},
   }
 
 DEFAULT_LANG = 'en'
