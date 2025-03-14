@@ -12,7 +12,7 @@
     <table class="table shadow-sm">
       <tbody>
         {% for author, articles in authors | sort %}
-        <tr>
+        <tr id="{{ author.slug }}">
           <td>
             <a href="/{{ author.url }}">{{ author }}</a>
             <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles | count }}</span>

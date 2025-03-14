@@ -57,14 +57,14 @@
         </span>
       </a>
       {% endfor %}
-      <a href="#" title="Published: {{ article.locale_date }}">
+      <a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}" title="Published: {{ article.locale_date }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-clock"></i>
           <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
         </span>
       </a>
       {% if article.modified %}
-      <a href="#" title="Modified: {{ article.locale_modified }}">
+      <a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}" title="Modified: {{ article.locale_modified }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-clock-rotate-left"></i>
           <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>

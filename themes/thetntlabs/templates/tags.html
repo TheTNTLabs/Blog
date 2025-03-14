@@ -12,7 +12,7 @@
     <table class="table shadow-sm">
       <tbody>
         {% for tag, articles in tags | sort %}
-        <tr>
+        <tr id="{{ tag.slug }}">
           <td>
             <a href="/{{ tag.url }}">{{ tag }}</a>
             <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles | count }}</span>
