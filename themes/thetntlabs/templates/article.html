@@ -50,7 +50,7 @@
     <h1>{{ article.title }}</h1>
     <div class="d-flex flex-wrap gap-2 my-2">
       {% for author in article.authors %}
-      <a href="/{{ author.url }}" title="Author: {{ author }}">
+      <a href="/{{ AUTHORS_URL or 'authors' }}#{{ author.slug }}" title="Author: {{ author }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-user"></i>
           {{ author }}
@@ -72,7 +72,7 @@
       </a>
       {% endif %}
       {% if article.category %}
-      <a href="/{{ article.category.url }}" title="Category: {{ article.category }}">
+      <a href="/{{ CATEGORIES_URL or 'categories' }}#{{ article.category.slug }}" title="Category: {{ article.category }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-folder"></i>
           {{ article.category }}
@@ -80,7 +80,7 @@
       </a>
       {% endif %}
       {% for tag in article.tags %}
-      <a href="/{{ tag.url }}" title="Tag: {{ tag }}">
+      <a href="/{{ TAGS_URL or 'tags' }}#{{ tag.slug }}" title="Tag: {{ tag }}">
         <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis rounded-pill">
           <i class="fa-solid fa-tag"></i>
           {{ tag }}
