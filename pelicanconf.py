@@ -13,25 +13,32 @@ MAINNAV = (
     ('Blog', '/', '_self', True),
     ('Chat', 'https://thetntlabs.zulipchat.com/', '_blank', False),
     ('Source', 'https://codeberg.org/TheTNTLabs', '_blank', False),
-    ('Status', 'https://status.thetntlabs.us.to/', '_self', False)
+    ('Status', 'https://status.thetntlabs.us.to/', '_self', False),
   )
 BLOGNAV = (
     ('Archives', '/archives', 'archive'),
     ('Authors', '/authors', 'author'),
     ('Categories', '/categories', 'categor'),
-    ('Tags', '/tags', 'tag')
+    ('Tags', '/tags', 'tag'),
   )
+FOOTER = (
+    ('body', 'Copyright © TheTNTLabs Gaming. <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/raw/branch/main/LICENSE.md">LICENSE (Blog)</a> <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/raw/branch/main/LICENSE.md">LICENSE (Design)</a>'),
+)
 
 PATH = 'content/'
 OUTPUT_PATH = 'static-deployment/'
 THEME = 'themes/thetntlabs/'
+
+ARTICLE_PATHS = [
+    'articles/',
+  ]
 STATIC_PATHS = [
-    'root/_headers',
-    'root/_redirects',
+    'configs/_headers',
+    'configs/_redirects',
   ]
 EXTRA_PATH_METADATA = {
-    'root/_headers': {'path': '_headers'},
-    'root/_redirects': {'path': '_redirects'},
+    'configs/_headers': {'path': '_headers'},
+    'configs/_redirects': {'path': '_redirects'},
   }
 
 DEFAULT_LANG = 'en'
@@ -41,7 +48,7 @@ TIMEZONE = 'Etc/UTC'
 DEFAULT_PAGINATION = 12
 PAGINATION_PATTERNS = (
   (1, '{base_name}/', '{save_as}'),
-  (2, '{base_name}/-/{number}', '{base_name}/-/{number}.html'),
+  (2, '{base_name}/{number}', '{base_name}/{number}.html'),
 )
 
 DELETE_OUTPUT_DIRECTORY = True

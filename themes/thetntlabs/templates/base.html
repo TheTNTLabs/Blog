@@ -51,13 +51,13 @@
       {% endfilter %}
     </main>
     <footer class="text-center">
-      <div class="container-fluid bg-body p-2">
+      {% for color, text in FOOTER %}
+      <div class="container-fluid bg-{{ color }} p-2">
         <p class="m-0">
-          Copyright © {{ AUTHOR }}.
-          <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/raw/branch/main/LICENSE.md">LICENSE (Blog)</a>
-          <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/raw/branch/main/LICENSE.md">LICENSE (Design)</a>
+          {{ text }}
         </p>
       </div>
+      {% endfor %}
     </footer>
   </body>
 </html>
