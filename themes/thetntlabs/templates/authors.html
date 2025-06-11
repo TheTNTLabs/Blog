@@ -13,10 +13,8 @@
       <tbody>
         {% for author, articles in authors | sort %}
         <tr id="{{ author.slug }}">
-          <td>
-            <a href="/{{ author.url }}">{{ author }}</a>
-            <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles | count }}</span>
-          </td>
+          <td><a href="/{{ author.url }}">{{ author }}</a></td>
+          <td>{{ articles | count }}</td>
         </tr>
         {% endfor %}
       </tbody>

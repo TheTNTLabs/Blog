@@ -13,10 +13,8 @@
       <tbody>
         {% for category, articles in categories | sort %}
         <tr id="{{ category.slug }}">
-          <td>
-            <a href="/{{ category.url }}">{{ category }}</a>
-            <span class="badge bg-secondary-subtle border border-secondary-subtle text-secondary-emphasis">{{ articles | count }}</span>
-          </td>
+          <td><a href="/{{ category.url }}">{{ category }}</a></td>
+          <td>{{ articles | count }}</td>
         </tr>
         {% endfor %}
       </tbody>
