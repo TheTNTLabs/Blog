@@ -36,7 +36,7 @@
                   {% endfilter %}
                 </div>
                 <small class="text-body-secondary">
-                  <a href="/{{ AUTHORS_URL or 'authors' }}#{{ article.author.slug }}">{{ article.author }}</a>
+                  <a href="/{{ CATEGORIES_URL or 'categories' }}#{{ article.category.slug }}">{{ article.category }}</a>
                   ·
                   <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
                 </small>
