@@ -1,0 +1,63 @@
+{% if author %}
+
+{% if AUTHOR_FEED_ATOM %}
+<a class="btn btn-outline-dark" href="/{% if AUTHOR_FEED_ATOM_URL %}{{ AUTHOR_FEED_ATOM_URL.format(slug=author.slug) }}{% else %}{{ AUTHOR_FEED_ATOM.format(slug=author.slug) }}{% endif %}" title="Atom: {{ author }}">
+  <i class="fa-solid fa-atom"></i>
+</a>
+{% endif %}
+{% if AUTHOR_FEED_RSS %}
+<a class="btn btn-outline-dark" href="/{% if AUTHOR_FEED_RSS_URL %}{{ AUTHOR_FEED_RSS_URL.format(slug=author.slug) }}{% else %}{{ AUTHOR_FEED_RSS.format(slug=author.slug) }}{% endif %}" title="RSS: {{ author }}">
+  <i class="fa-solid fa-rss"></i>
+</a>
+{% endif %}
+
+{% elif category %}
+
+{% if CATEGORY_FEED_ATOM %}
+<a class="btn btn-outline-dark" href="/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" title="Atom: {{ category }}">
+  <i class="fa-solid fa-atom"></i>
+</a>
+{% endif %}
+{% if CATEGORY_FEED_RSS %}
+<a class="btn btn-outline-dark" href="/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" title="RSS: {{ category }}">
+  <i class="fa-solid fa-rss"></i>
+</a>
+{% endif %}
+
+{% elif tag %}
+
+{% if TAG_FEED_ATOM %}
+<a class="btn btn-outline-dark" href="/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" title="Atom: {{ tag }}">
+  <i class="fa-solid fa-atom"></i>
+</a>
+{% endif %}
+{% if TAG_FEED_RSS %}
+<a class="btn btn-outline-dark" href="/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" title="RSS: {{ tag }}">
+  <i class="fa-solid fa-rss"></i>
+</a>
+{% endif %}
+
+{% else %}
+
+{% if FEED_ALL_ATOM %}
+<a class="btn btn-outline-dark" href="/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" title="Atom: {{ SITENAME }}">
+  <i class="fa-solid fa-atom"></i>
+</a>
+{% endif %}
+{% if FEED_ALL_RSS %}
+<a class="btn btn-outline-dark" href="/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" title="RSS: {{ SITENAME }}">
+  <i class="fa-solid fa-rss"></i>
+</a>
+{% endif %}
+{% if FEED_ATOM %}
+<a class="btn btn-outline-dark" href="/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" title="Atom: {{ SITENAME }}">
+  <i class="fa-solid fa-atom"></i>
+</a>
+{% endif %}
+{% if FEED_RSS %}
+<a class="btn btn-outline-dark" href="/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" title="RSS: {{ SITENAME }}">
+  <i class="fa-solid fa-rss"></i>
+</a>
+{% endif %}
+
+{% endif %}
