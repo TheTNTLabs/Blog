@@ -35,11 +35,9 @@
                   {% include 'discussions.html' %}
                   {% endfilter %}
                 </div>
-                <small class="text-body-secondary">
-                  <a href="/{{ CATEGORIES_URL or 'categories' }}#{{ article.category.slug }}">
-                    {{ article.category }}
-                  </a>
-                  ·
+                <small>
+                  <a href="/{{ CATEGORIES_URL or 'categories' }}#{{ article.category.slug }}">{{ article.category }}</a>
+                  |
                   <a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}">
                     <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
                   </a>
