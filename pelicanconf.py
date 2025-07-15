@@ -22,7 +22,7 @@ BLOGNAV = (
     ('Tags', '/tags', 'tag'),
   )
 FOOTER = (
-    ('body', 'Copyright © TheTNTLabs Gaming. <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/raw/branch/main/LICENSE.md">LICENSE (Blog)</a> <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/raw/branch/main/LICENSE.md">LICENSE (Design)</a>'),
+    ('body', 'Copyright © TheTNTLabs Gaming. <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE.md">LICENSE (Blog)</a> <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/src/branch/main/LICENSE.md">LICENSE (Design)</a>'),
 )
 
 DELETE_OUTPUT_DIRECTORY = True
