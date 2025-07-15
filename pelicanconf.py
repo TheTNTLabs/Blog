@@ -25,6 +25,8 @@ FOOTER = (
     ('body', 'Copyright © TheTNTLabs Gaming. <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/raw/branch/main/LICENSE.md">LICENSE (Blog)</a> <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/raw/branch/main/LICENSE.md">LICENSE (Design)</a>'),
 )
 
+DELETE_OUTPUT_DIRECTORY = True
+
 PATH = 'content/'
 OUTPUT_PATH = 'static-deployment/'
 THEME = 'themes/thetntlabs/'
@@ -51,8 +53,6 @@ PAGINATION_PATTERNS = (
   (2, '{base_name}/{number}', '{base_name}/{number}.html'),
 )
 
-DELETE_OUTPUT_DIRECTORY = True
-
 ARTICLE_SAVE_AS = 'article/{slug}.html'
 ARTICLE_URL = 'article/{slug}'
 
@@ -70,3 +70,5 @@ CATEGORY_URL = 'category/{slug}/'
 
 TAG_SAVE_AS = 'tag/{slug}/index.html'
 TAG_URL = 'tag/{slug}/'
+
+AUTHOR_FEED_RSS = None
