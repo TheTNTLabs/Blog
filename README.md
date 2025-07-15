@@ -8,17 +8,17 @@
 
 ## Setup
 
-### 1. Install Python packages
+### 1. Install Pelican and Markdown
 ```bash
 python3 -m pip install "pelican[markdown]"
 ```
 
-### 2. Generate static files
+### 2. Generate the site
 ```bash
 pelican content
 ```
 
-### 3. Serve generated files locally
+### 3. Preview the site
 ```bash
-python3 -m http.server -d static-deployment/
+pelican --listen
 ```
