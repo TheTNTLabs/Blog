@@ -36,11 +36,18 @@
                   {% endfilter %}
                 </div>
                 <small>
-                  <a href="/{{ CATEGORIES_URL or 'categories' }}#{{ article.category.slug }}">{{ article.category }}</a>
-                  |
-                  <a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}">
-                    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-                  </a>
+                  <ul class="list-horizontal">
+                    <li>
+                      <a href="/{{ CATEGORIES_URL or 'categories' }}#{{ article.category.slug }}">
+                        {{ article.category }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}">
+                        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                      </a>
+                    </li>
+                  </ul>
                 </small>
               </div>
             </div>
