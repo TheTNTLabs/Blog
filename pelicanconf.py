@@ -23,6 +23,7 @@ BLOGNAV = (
   )
 FOOTER = (
     ('body', 'Copyright © TheTNTLabs Gaming. <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE.md">LICENSE (Blog)</a> <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/src/branch/main/LICENSE.md">LICENSE (Design)</a>'),
+    ('body', 'Powered by <a target="_blank" href="https://getpelican.com/">Pelican</a>'),
 )
 
 DELETE_OUTPUT_DIRECTORY = True
