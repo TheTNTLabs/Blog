@@ -30,7 +30,7 @@
               <p class="card-text text-truncate">{{ article.description }}</p>
               <div class="d-flex justify-content-between align-items-center flex-wrap">
                 <div class="btn-group btn-group-sm">
-                  <a class="btn btn-outline-dark" href="/{{ article.url }}">Read</a>
+                  <a class="btn btn-outline-light" href="/{{ article.url }}">Read</a>
                   {% filter indent(width=18, first=True) %}
                   {% include 'discussions.html' %}
                   {% endfilter %}

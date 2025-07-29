@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}" data-bs-theme="dark">
   <head>
     {% block head %}
     <meta charset="utf-8">
@@ -23,7 +23,7 @@
         </div>
       </div>
     </nav>
-    <nav class="navbar navbar-expand-sm bg-ttl" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-sm bg-ttl sticky-top shadow-sm" aria-label="Main navigation">
       <div class="container">
         <a class="navbar-brand" href="{{ PARENTURL }}">
           <img src="{{ PARENTIMG }}" alt="{{ PARENTIMGALT }}" class="align-top">
