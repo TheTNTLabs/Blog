@@ -9,6 +9,7 @@ PARENTNAME = 'TheTNTLabs'
 PARENTURL = 'https://www.thetntlabs.us.to/'
 PARENTIMG = 'https://design.thetntlabs.us.to/ttl/img/logo-32x32.png'
 PARENTIMGALT = 'TheTNTLabs Logo'
+COLORMODE = 'dark'
 MAINNAV = (
     ('Blog', '/', '_self', True),
     ('Chat', 'https://thetntlabs.zulipchat.com/', '_blank', False),
