@@ -9,7 +9,7 @@
     {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
     {% endfilter %}
-    <table class="table shadow-sm">
+    <table class="table table-bordered rounded shadow-sm">
       <tbody>
         {% for article in dates %}
         <tr id="{{ article.slug }}">
