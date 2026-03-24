@@ -1,10 +1,10 @@
 {% if article.zulip_url %}
 <a class="btn btn-ttl-body" target="_blank" href="{{ article.zulip_url }}" title="Discuss on Zulip">
-  <i class="fa-solid fa-comments"></i>
+  <i class="fa-brands fa-zulip"></i>
 </a>
 {% endif %}
-{% if article.twitter_url %}
-<a class="btn btn-ttl-body" target="_blank" href="{{ article.twitter_url }}" title="Discuss on X (formerly Twitter)">
+{% if article.x_url %}
+<a class="btn btn-ttl-body" target="_blank" href="{{ article.x_url }}" title="Discuss on X">
   <i class="fa-brands fa-x-twitter"></i>
 </a>
 {% endif %}
