@@ -1,0 +1,46 @@
+{% for author in article.authors %}
+<a href="/{{ author.url }}" title="Author: {{ author }}">
+  <span class="badge bg-body border text-body-emphasis shadow-sm">
+    <span class="fa-solid fa-user"></span>
+    {{ author }}
+  </span>
+</a>
+{% endfor %}
+<a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}" title="Published: {{ article.locale_date }}">
+  <span class="badge bg-body border text-body-emphasis shadow-sm">
+    <span class="fa-solid fa-clock"></span>
+    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+  </span>
+</a>
+{% if article.modified %}
+<a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}" title="Modified: {{ article.locale_modified }}">
+  <span class="badge bg-body border text-body-emphasis shadow-sm">
+    <span class="fa-solid fa-clock-rotate-left"></span>
+    <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>
+  </span>
+</a>
+{% endif %}
+{% if article.category %}
+<a href="/{{ article.category.url }}" title="Category: {{ article.category }}">
+  <span class="badge bg-body border text-body-emphasis shadow-sm">
+    <span class="fa-solid fa-folder"></span>
+    {{ article.category }}
+  </span>
+</a>
+{% endif %}
+{% for tag in article.tags %}
+<a href="/{{ tag.url }}" title="Tag: {{ tag }}">
+  <span class="badge bg-body border text-body-emphasis shadow-sm">
+    <span class="fa-solid fa-tag"></span>
+    {{ tag }}
+  </span>
+</a>
+{% endfor %}
+{% for translation in article.translations %}
+<a href="/{{ translation.url }}" hreflang="{{ translation.lang }}" title="Translation: {{ translation }}">
+  <span class="badge bg-body border text-body-emphasis shadow-sm">
+    <span class="fa-solid fa-language"></span>
+    {{ translation }}
+  </span>
+</a>
+{% endfor %}

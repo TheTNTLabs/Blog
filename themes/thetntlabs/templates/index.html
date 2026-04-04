@@ -27,27 +27,16 @@
             <img class="card-img-top" src="{{ article.image }}" alt="{{ article.image_alt }}">
             <div class="card-body">
               <h2 class="card-title h5">{{ article.title }}</h2>
-              <p class="card-text text-truncate">{{ article.description }}</p>
-              <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <div class="btn-group btn-group-sm">
-                  <a class="btn btn-ttl-body" href="/{{ article.url }}">Read</a>
+              <p class="card-text m-0">{{ article.description }}</p>
+              <small>
+                <div class="d-flex flex-wrap gap-2 my-2">
                   {% filter indent(width=18, first=True) %}
-                  {% include 'discussion_buttons.html' %}
+                  {% include 'metadata_badges.html' %}
                   {% endfilter %}
                 </div>
-                <small>
-                  <ul class="list-horizontal">
-                    <li>
-                      <a href="/{{ CATEGORIES_URL or 'categories' }}#{{ article.category.slug }}">
-                        {{ article.category }}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/{{ ARCHIVES_URL or 'archives' }}#{{ article.slug }}">
-                        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-                      </a>
-                    </li>
-                  </ul>
+                <div class="d-grid">
+                  <a class="btn btn-sm ttl-btn-body" href="/{{ article.url }}">Read</a>
+                </div>
                 </small>
               </div>
             </div>
