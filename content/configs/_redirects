@@ -1,14 +1,5 @@
-/article/ /archives 301
-/article /archives 301
+/articles/ /archives 301
+/articles /archives 301
 
-/page/ /archives 301
-/page /archives 301
-
-/author/ /authors 301
-/author /authors 301
-
-/category/ /categories 301
-/category /categories 301
-
-/tag/ /tags 301
-/tag /tags 301
+/pages/ /archives 301
+/pages /archives 301

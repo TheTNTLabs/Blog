@@ -17,10 +17,10 @@ MAINNAV = (
     ('Status', 'https://status.thetntlabs.us.to/', '_self', False),
   )
 BLOGNAV = (
-    ('Archives', '/archives', 'archive'),
-    ('Authors', '/authors', 'author'),
-    ('Categories', '/categories', 'categor'),
-    ('Tags', '/tags', 'tag'),
+    ('Archives', '/archives/', 'archives'),
+    ('Authors', '/authors/', 'authors'),
+    ('Categories', '/categories/', 'categories'),
+    ('Tags', '/tags/', 'tags'),
   )
 FOOTER = (
     ('body', 'Copyright © TheTNTLabs Gaming. <a target="_blank" href="https://codeberg.org/TheTNTLabs/Blog/src/branch/main/LICENSE.md">LICENSE (Blog)</a> <a target="_blank" href="https://codeberg.org/TheTNTLabs/Design/src/branch/main/LICENSE.md">LICENSE (Design)</a>'),
@@ -55,22 +55,21 @@ PAGINATION_PATTERNS = (
   (2, '{base_name}/{number}', '{base_name}/{number}.html'),
 )
 
-ARTICLE_SAVE_AS = 'article/{slug}.html'
-ARTICLE_URL = 'article/{slug}'
+ARTICLE_SAVE_AS = 'articles/{slug}.html'
+ARTICLE_URL = 'articles/{slug}'
+ARTICLE_LANG_SAVE_AS = 'articles/{slug}-{lang}.html'
+ARTICLE_LANG_URL = 'articles/{slug}-{lang}'
 
-ARTICLE_LANG_SAVE_AS = 'article/{slug}-{lang}.html'
-ARTICLE_LANG_URL = 'article/{slug}-{lang}'
+AUTHORS_SAVE_AS = 'authors/index.html'
+AUTHOR_SAVE_AS = 'authors/{slug}/index.html'
+AUTHOR_URL = 'authors/{slug}/'
 
-PAGE_SAVE_AS = 'page/{slug}.html'
-PAGE_URL = 'page/{slug}'
+CATEGORIES_SAVE_AS = 'categories/index.html'
+CATEGORY_SAVE_AS = 'categories/{slug}/index.html'
+CATEGORY_URL = 'categories/{slug}/'
 
-AUTHOR_SAVE_AS = 'author/{slug}/index.html'
-AUTHOR_URL = 'author/{slug}/'
-
-CATEGORY_SAVE_AS = 'category/{slug}/index.html'
-CATEGORY_URL = 'category/{slug}/'
-
-TAG_SAVE_AS = 'tag/{slug}/index.html'
-TAG_URL = 'tag/{slug}/'
+TAGS_SAVE_AS = 'tags/index.html'
+TAG_SAVE_AS = 'tags/{slug}/index.html'
+TAG_URL = 'tags/{slug}/'
 
 AUTHOR_FEED_RSS = None
