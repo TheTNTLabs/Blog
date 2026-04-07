@@ -29,10 +29,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-2">
   <section id="{{ page.slug }}">
-    <h1>{{ page.title }}</h1>
+  <div class="ttl-hero ttl-hero-size-sm">
+    <img class="ttl-hero-img" src="{{ page.image or HEROIMG }}" alt="{{ page.image_alt or HEROIMGALT }}">
+    <div class="ttl-hero-body container text-start text-light">
+      <hgroup>
+        <h1 class="fw-bold">{{ page.title }}</h1>
+        <p class="h5">{{ page.description }}</p>
+      </hgroup>
+    </div>
+  </div>
+  <div class="container mt-3">
     {{ page.content }}
+  </div>
   </section>
-</div>
 {% endblock %}

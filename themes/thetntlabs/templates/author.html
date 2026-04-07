@@ -2,8 +2,10 @@
 
 {% block title %}{{ author }} - {{ SITENAME }}{% endblock %}
 
-{% block description %}Articles by {{ author }}{% endblock description %}
-
-{% block content_title %}Author: {{ author }}{% endblock %}
+{% block description %}All articles written by {{ author }}{% endblock description %}
 
 {% block content_slug %}author-{{ author | lower }}{% endblock %}
+
+{% block content_title %}<span class="fa-solid fa-user" title="Author"></span> {{ author }}{% endblock %}
+
+{% block content_description %}All articles written by {{ author }}{% endblock content_description %}

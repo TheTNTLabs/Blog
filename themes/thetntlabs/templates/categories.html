@@ -2,10 +2,20 @@
 
 {% block title %}Categories - {{ SITENAME }}{% endblock %}
 
+{% block description %}A list of all categories{% endblock %}
+
 {% block content %}
-<div class="container mt-2">
-  <section id="categories">
-    <h1 class="text-center">Categories</h1>
+<section id="categories">
+  <div class="ttl-hero ttl-hero-size-sm">
+    <img class="ttl-hero-img" src="{{ HEROIMG }}" alt="{{ HEROIMGALT }}">
+    <div class="ttl-hero-body container text-start text-light">
+      <hgroup>
+        <h1 class="fw-bold">Categories</h1>
+        <p class="h5">A list of all categories</p>
+      </hgroup>
+    </div>
+  </div>
+  <div class="container mt-3">
     {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
     {% endfilter %}
@@ -19,6 +29,6 @@
         {% endfor %}
       </tbody>
     </table>
-  </section>
-</div>
+  </div>
+</section>
 {% endblock %}

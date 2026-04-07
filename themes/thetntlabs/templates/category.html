@@ -2,8 +2,10 @@
 
 {% block title %}{{ category }} - {{ SITENAME }}{% endblock %}
 
-{% block description %}Articles in the '{{ category }}' category{% endblock description %}
-
-{% block content_title %}Category: {{ category }}{% endblock %}
+{% block description %}All articles in the '{{ category }}' category{% endblock description %}
 
 {% block content_slug %}category-{{ category | lower }}{% endblock %}
+
+{% block content_title %}<span class="fa-solid fa-folder" title="Category"></span> {{ category }}{% endblock %}
+
+{% block content_description %}All articles in the '{{ category }}' category{% endblock content_description %}

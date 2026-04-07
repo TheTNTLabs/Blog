@@ -1,11 +1,13 @@
 AUTHOR = 'TheTNTLabs Gaming'
 SITENAME = 'TheTNTLabs Blog'
-SITEDESC = 'Gaming, with a bang!'
+SITEDESC = 'The latest news from TheTNTLabs'
 SITEURL = 'https://blog.thetntlabs.us.to'
 PARENTNAME = 'TheTNTLabs'
 PARENTURL = 'https://www.thetntlabs.us.to/'
 PARENTIMG = 'https://design.thetntlabs.us.to/ttl/img/logo-32x32.png'
 PARENTIMGALT = 'TheTNTLabs Logo'
+HEROIMG = 'https://design.thetntlabs.us.to/ttl/img/hero-1920x650.png'
+HEROIMGALT = 'TheTNTLabs Gate'
 COLORMODE = 'dark'
 MAINNAV = (
     ('Blog', '/', '_self', True),
