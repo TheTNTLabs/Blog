@@ -25,17 +25,17 @@
           </ul>
         </div>
       </nav>
-      <nav class="navbar navbar-expand-sm bg-ttl-primary" aria-label="Main navigation">
+      <nav class="navbar navbar-expand-sm bg-primary" aria-label="Main navigation">
         <div class="container">
           <a class="navbar-brand" href="{{ PARENTURL }}">
             <img src="{{ PARENTIMG }}" alt="{{ PARENTIMGALT }}" class="align-top">
             {{ PARENTNAME }}
           </a>
-          <input type="checkbox" id="navbar-toggler-checkbox">
-          <label class="navbar-toggler" for="navbar-toggler-checkbox" role="button" tabindex="0" aria-controls="navbarNav" aria-label="Toggle navigation">
-            <i class="fa-solid fa-bars fs-1"></i>
+          <input type="checkbox" class="ttl-navbar-toggler" id="main-navbar-toggler">
+          <label class="navbar-toggler" for="main-navbar-toggler" role="button" tabindex="0" aria-controls="main-navbar-nav" aria-label="Toggle main navigation">
+            <span class="fa-solid fa-bars fs-1"></span>
           </label>
-          <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse" id="main-navbar-nav">
             <ul class="navbar-nav">
               {% for title, link, target, active in MAINNAV %}
               <li class="nav-item">
