@@ -3,7 +3,7 @@
   <ul class="nav nav-pills nav-fill bg-body border rounded shadow-sm justify-content-center mb-3">
   {% for title, link, prefix in BLOGNAV %}
     <li class="nav-item">
-      <a class="nav-link text-reset{{ ' active' if output_file.startswith(prefix) }}" href="{{ link }}"{{ ' aria-current="true"' if output_file.startswith(prefix) }}>{{ title }}</a>
+      <a class="nav-link text-reset{{ ' ttl-active' if output_file.startswith(prefix) }}" href="{{ link }}"{{ ' aria-current="true"' if output_file.startswith(prefix) }}>{{ title }}</a>
     </li>
   {% endfor %}
   </ul>
