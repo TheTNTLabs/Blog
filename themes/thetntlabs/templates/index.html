@@ -1,14 +1,7 @@
 {% extends "base.html" %}
 
-{% block head %}
-{{ super() }}
-{% filter indent(width=4, first=True) %}
-{% include 'feed_links.html' %}
-{% endfilter %}
-{% endblock %}
-
 {% block content %}
-  <section id="{% block content_slug %}{{ SITENAME | replace(' ', '-') | lower }}{% endblock %}">
+<section id="{% block content_slug %}{{ SITENAME | replace(' ', '-') | lower }}{% endblock %}">
   <div class="ttl-hero ttl-hero-size-sm">
     <img class="ttl-hero-img" src="{% block content_image %}{{ HEROIMG }}{% endblock %}" alt="{% block content_image_alt %}{{ HEROIMGALT }}{% endblock %}">
     <div class="ttl-hero-body container text-start text-light">
@@ -19,8 +12,8 @@
         </hgroup>
         <div class="align-self-center">
           {% filter indent(width=10, first=True) %}
-      {% include 'feed_buttons.html' %}
-      {% endfilter %}
+          {% include 'feed_buttons.html' %}
+          {% endfilter %}
         </div>
       </div>
     </div>
@@ -47,7 +40,7 @@
                 <div class="d-grid">
                   <a class="btn btn-sm ttl-btn-body" href="/{{ article.url }}">Read</a>
                 </div>
-                </small>
+              </small>
             </div>
           </div>
         </div>
@@ -58,5 +51,5 @@
     {% include 'pagination.html' %}
     {% endfilter %}
   </div>
-  </section>
+</section>
 {% endblock content %}

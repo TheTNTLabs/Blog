@@ -6,30 +6,8 @@
 
 {% block description %}{{ page.description }}{% endblock description %}
 
-{% block head %}
-{{ super() }}
-    {% for translation in page.translations %}
-    <link rel="alternate" href="/{{ translation.url }}" hreflang="{{ translation.lang }}">
-    {% endfor %}
-    <meta name="og:title" content="{{ page.title }}">
-    <meta name="og:type" content="website">
-    {% if page.image %}
-    <meta name="og:image" content="{{ page.image }}">
-    <meta name="og:image:alt" content="{{ page.image_alt }}">
-    {% endif %}
-    <meta name="og:url" content="{{ SITEURL }}/{{ page.url }}">
-    {% if page.description %}
-    <meta name="og:description" content="{{ page.description }}">
-    {% endif %}
-    <meta name="og:locale" content="{{ page.lang }}">
-    {% for translation in page.translations %}
-    <meta name="og:locale:alternate" content="{{ translation.lang }}">
-    {% endfor %}
-    <meta name="og:site_name" content="{{ SITENAME }}">
-{% endblock %}
-
 {% block content %}
-  <section id="{{ page.slug }}">
+<section id="{{ page.slug }}">
   <div class="ttl-hero ttl-hero-size-sm">
     <img class="ttl-hero-img" src="{{ page.image or HEROIMG }}" alt="{{ page.image_alt or HEROIMGALT }}">
     <div class="ttl-hero-body container text-start text-light">
@@ -42,5 +20,5 @@
   <div class="container mt-3">
     {{ page.content }}
   </div>
-  </section>
+</section>
 {% endblock %}

@@ -12,6 +12,14 @@
     <link rel="icon" href="{{ PARENTIMG }}">
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ SITEDESC }}{% endblock description %}">
+    {% filter indent(width=4, first=True) %}
+    {% with title=head_title, description=head_description, image=head_image, image_alt=head_image_alt, url=output_file %}
+    {% include 'metadata_tags.html' %}
+    {% endwith %}
+    {% endfilter %}
+    {% filter indent(width=4, first=True) %}
+    {% include 'feed_tags.html' %}
+    {% endfilter %}
     {% endblock head %}
   </head>
   <body class="bg-body-tertiary">

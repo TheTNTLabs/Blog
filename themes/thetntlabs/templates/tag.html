@@ -2,10 +2,14 @@
 
 {% block title %}{{ tag }} - {{ SITENAME }}{% endblock %}
 
-{% block description %}All articles tagged with '{{ tag }}'{% endblock description %}
+{% block description %}All articles tagged with `{{ tag }}`{% endblock %}
 
 {% block content_slug %}tag-{{ tag | lower }}{% endblock %}
 
 {% block content_title %}<span class="fa-solid fa-tag" title="Tag"></span> {{ tag }}{% endblock %}
 
-{% block content_description %}All articles tagged with '{{ tag }}'{% endblock content_description %}
+{% block content_description %}All articles tagged with `{{ tag }}`{% endblock %}
+
+{% set head_title = '{}'.format(tag) %}
+
+{% set head_description = 'All articles tagged with `{}`'.format(tag) %}
