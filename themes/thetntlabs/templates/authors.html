@@ -23,6 +23,7 @@
     {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
     {% endfilter %}
+    {% if authors %}
     <table class="table table-bordered rounded shadow-sm">
       <tbody>
         {% for author, articles in authors | sort %}
@@ -33,6 +34,16 @@
         {% endfor %}
       </tbody>
     </table>
+    {% else %}
+    <section id="no-available-authors">
+      <div class="text-center py-5">
+        <hgroup>
+          <h2 class="fw-bold">No available authors</h2>
+          <p class="h5">Check elsewhere</p>
+        </hgroup>
+      </div>
+    </section>
+    {% endif %}
   </div>
 </section>
 {% endblock %}

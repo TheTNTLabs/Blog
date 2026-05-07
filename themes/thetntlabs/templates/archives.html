@@ -23,6 +23,7 @@
     {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
     {% endfilter %}
+    {% if dates %}
     <table class="table table-bordered rounded shadow-sm">
       <tbody>
         {% for article in dates %}
@@ -33,6 +34,16 @@
         {% endfor %}
       </tbody>
     </table>
+    {% else %}
+    <section id="no-available-articles">
+      <div class="text-center py-5">
+        <hgroup>
+          <h2 class="fw-bold">No available articles</h2>
+          <p class="h5">Check elsewhere</p>
+        </hgroup>
+      </div>
+    </section>
+    {% endif %}
   </div>
 </section>
 {% endblock %}

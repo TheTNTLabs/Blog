@@ -22,6 +22,7 @@
     {% filter indent(width=4, first=True) %}
     {% include 'navigation.html' %}
     {% endfilter %}
+    {% if articles_page.object_list %}
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
       {% for article in articles_page.object_list %}
       <section id="{{ article.slug }}">
@@ -50,6 +51,16 @@
     {% filter indent(width=4, first=True) %}
     {% include 'pagination.html' %}
     {% endfilter %}
+    {% else %}
+    <section id="no-available-articles">
+      <div class="text-center py-5">
+        <hgroup>
+          <h2 class="fw-bold">No available articles</h2>
+          <p class="h5">Check elsewhere</p>
+        </hgroup>
+      </div>
+    </section>
+    {% endif %}
   </div>
 </section>
 {% endblock content %}
